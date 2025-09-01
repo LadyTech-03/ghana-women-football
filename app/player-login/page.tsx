@@ -1,0 +1,219 @@
+"use client"
+
+import type React from "react"
+import { useState } from "react"
+import { useRouter } from "next/navigation"
+import { Button } from "@/components/ui/button"
+import { Input } from "@/components/ui/input"
+import { Label } from "@/components/ui/label"
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import { Checkbox } from "@/components/ui/checkbox"
+import { Eye, EyeOff, Heart, ArrowLeft, Shield, Users, BookOpen } from "lucide-react"
+import Link from "next/link"
+import { useAuthStore } from "@/lib/store"
+
+export default function PlayerLoginPage() {
+  const [email, setEmail] = useState("")
+  const [password, setPassword] = useState("")
+  const [showPassword, setShowPassword] = useState(false)
+  const [rememberMe, setRememberMe] = useState(false)
+  const [loading, setLoading] = useState(false)
+  const { login } = useAuthStore()
+  const router = useRouter()
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+    setLoading(true)
+
+    try {
+      await login(email, password)
+      router.push("/player-dashboard")
+    } catch (error) {
+      console.error("Login failed:", error)
+    } finally {
+      setLoading(false)
+    }
+  }
+
+  return (
+    <div className="min-h-screen flex">
+      <div className="flex-1 flex items-center justify-center p-8 bg-gradient-to-br from-background via-background to-muted/10">
+        <div className="w-full max-w-md">
+          <div className="text-center mb-8">
+            <Link
+              href="/"
+              className="inline-flex items-center text-sm text-muted-foreground hover:text-foreground mb-6 transition-colors"
+            >
+              <ArrowLeft className="h-4 w-4 mr-2" />
+              Back to Home
+            </Link>
+            <div className="flex items-center justify-center space-x-3 mb-6">
+              <div className="h-14 w-14 rounded-full bg-gradient-to-r from-red-500/20 to-red-600/20 flex items-center justify-center">
+                <Heart className="h-7 w-7 text-red-500" />
+              </div>
+              <div className="text-left">
+                <h1 className="text-xl font-bold bg-gradient-to-r from-red-600 to-yellow-600 bg-clip-text text-transparent">
+                  Player Support
+                </h1>
+                <p className="text-sm text-muted-foreground">Confidential & Secure Platform</p>
+              </div>
+            </div>
+          </div>
+
+          <Card className="border-0 shadow-xl bg-card/50 backdrop-blur-sm">
+            <CardHeader className="text-center pb-6">
+              <CardTitle className="text-2xl">Welcome Back</CardTitle>
+              <CardDescription className="text-base">
+                Access your confidential support resources and wellbeing tools
+              </CardDescription>
+            </CardHeader>
+            <CardContent className="space-y-6">
+              <form onSubmit={handleSubmit} className="space-y-5">
+                <div className="space-y-2">
+                  <Label htmlFor="email" className="text-sm font-medium">
+                    Email Address
+                  </Label>
+                  <Input
+                    id="email"
+                    type="email"
+                    placeholder="your.name@club.com"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    className="h-11"
+                    required
+                  />
+                </div>
+
+                <div className="space-y-2">
+                  <Label htmlFor="password" className="text-sm font-medium">
+                    Password
+                  </Label>
+                  <div className="relative">
+                    <Input
+                      id="password"
+                      type={showPassword ? "text" : "password"}
+                      placeholder="Enter your password"
+                      value={password}
+                      onChange={(e) => setPassword(e.target.value)}
+                      className="h-11 pr-10"
+                      required
+                    />
+                    <Button
+                      type="button"
+                      variant="ghost"
+                      size="sm"
+                      className="absolute right-0 top-0 h-full px-3 py-2 hover:bg-transparent"
+                      onClick={() => setShowPassword(!showPassword)}
+                    >
+                      {showPassword ? (
+                        <EyeOff className="h-4 w-4 text-muted-foreground" />
+                      ) : (
+                        <Eye className="h-4 w-4 text-muted-foreground" />
+                      )}
+                    </Button>
+                  </div>
+                </div>
+
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center space-x-2">
+                    <Checkbox
+                      id="remember"
+                      checked={rememberMe}
+                      onCheckedChange={(checked) => setRememberMe(checked as boolean)}
+                    />
+                    <Label htmlFor="remember" className="text-sm">
+                      Remember me
+                    </Label>
+                  </div>
+                  <Link href="/forgot-password" className="text-sm text-red-600 hover:text-red-700 hover:underline">
+                    Forgot password?
+                  </Link>
+                </div>
+
+                <Button
+                  type="submit"
+                  className="w-full h-11 bg-gradient-to-r from-red-500 via-yellow-500 to-green-500 hover:from-red-600 hover:via-yellow-600 hover:to-green-600 text-white font-medium"
+                  disabled={loading}
+                >
+                  {loading ? "Signing in..." : "Sign In Securely"}
+                </Button>
+              </form>
+
+              <div className="mt-6 p-4 bg-muted/30 rounded-lg">
+                <p className="text-xs text-muted-foreground text-center">
+                  <strong>Test Account:</strong> comfort.yeboah@ampemdarkoaladies.com / password
+                </p>
+              </div>
+            </CardContent>
+          </Card>
+
+          <div className="mt-6 text-center">
+            <p className="text-xs text-muted-foreground">
+              Need help? Contact your club's welfare officer or{" "}
+              <Link href="/support-contact" className="text-red-600 hover:text-red-700 hover:underline">
+                GFA Support
+              </Link>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div className="hidden lg:flex flex-1 bg-gradient-to-br from-red-50 via-yellow-50 to-green-50 dark:from-red-950/20 dark:via-yellow-950/20 dark:to-green-950/20 items-center justify-center p-8">
+        <div className="max-w-lg text-center space-y-8">
+          <div className="space-y-4">
+            <h2 className="text-3xl font-bold bg-gradient-to-r from-red-600 via-yellow-600 to-green-600 bg-clip-text text-transparent">
+              Your Wellbeing Matters
+            </h2>
+            <p className="text-lg text-muted-foreground">
+              Access confidential support, resources, and tools designed specifically for women footballers in Ghana.
+            </p>
+          </div>
+
+          <div className="grid gap-6">
+            <div className="flex items-start space-x-4 p-6 bg-white/60 dark:bg-card/60 backdrop-blur-sm rounded-xl border border-red-200/50 dark:border-red-800/50">
+              <div className="h-12 w-12 rounded-full bg-gradient-to-r from-red-500/20 to-red-600/20 flex items-center justify-center flex-shrink-0">
+                <Shield className="h-6 w-6 text-red-600" />
+              </div>
+              <div className="text-left">
+                <h3 className="font-semibold text-red-900 dark:text-red-100">Confidential Support</h3>
+                <p className="text-sm text-muted-foreground">
+                  Request supplies, medical support, and schedule adjustments privately and securely.
+                </p>
+              </div>
+            </div>
+
+            <div className="flex items-start space-x-4 p-6 bg-white/60 dark:bg-card/60 backdrop-blur-sm rounded-xl border border-yellow-200/50 dark:border-yellow-800/50">
+              <div className="h-12 w-12 rounded-full bg-gradient-to-r from-yellow-500/20 to-yellow-600/20 flex items-center justify-center flex-shrink-0">
+                <BookOpen className="h-6 w-6 text-yellow-600" />
+              </div>
+              <div className="text-left">
+                <h3 className="font-semibold text-yellow-900 dark:text-yellow-100">Health Resources</h3>
+                <p className="text-sm text-muted-foreground">
+                  Access articles, videos, and local resources on menstrual health and nutrition.
+                </p>
+              </div>
+            </div>
+
+            <div className="flex items-start space-x-4 p-6 bg-white/60 dark:bg-card/60 backdrop-blur-sm rounded-xl border border-green-200/50 dark:border-green-800/50">
+              <div className="h-12 w-12 rounded-full bg-gradient-to-r from-green-500/20 to-green-600/20 flex items-center justify-center flex-shrink-0">
+                <Users className="h-6 w-6 text-green-600" />
+              </div>
+              <div className="text-left">
+                <h3 className="font-semibold text-green-900 dark:text-green-100">Community Support</h3>
+                <p className="text-sm text-muted-foreground">
+                  Connect with welfare officers and access anonymous feedback channels.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div className="pt-4">
+            <p className="text-sm text-muted-foreground italic">
+              "Empowering Ghana's women footballers with the support they deserve."
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  )
+}
