@@ -123,3 +123,9 @@
     @apply bg-background text-foreground;
   }
 }
+
+@layer utilities {
+  .font-serif {
+    font-family: "Georgia", serif;
+  }
+}

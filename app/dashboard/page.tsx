@@ -43,7 +43,7 @@ export default function DashboardPage() {
       <div className="space-y-8">
         <div className="space-y-2">
           <h1 className="text-3xl font-bold tracking-tight">Dashboard</h1>
-          <p className="text-muted-foreground text-lg">Welcome back, {user?.name}</p>
+          {/* <p className="text-muted-foreground text-lg">Welcome back, {user?.name}</p> */}
           <p className="text-sm text-muted-foreground bg-muted/50 p-3 rounded-lg border-l-4 border-primary">
             {getRoleDescription()}
           </p>

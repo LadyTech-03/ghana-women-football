@@ -52,6 +52,7 @@ const mockClubs: Club[] = [
   {
     id: "1",
     name: "Ampem Darkoa Ladies F.C.",
+    logo: "/clubs/ampem-darkoa.png",
     zone: "Northern",
     region: "Bono East",
     founded: 2009,
@@ -64,6 +65,7 @@ const mockClubs: Club[] = [
   {
     id: "2",
     name: "Hasaacas Ladies",
+    logo: "/clubs/hasaacas.jpeg",
     zone: "Southern",
     region: "Western",
     founded: 2003,
@@ -76,6 +78,7 @@ const mockClubs: Club[] = [
   {
     id: "3",
     name: "Faith Ladies F.C.",
+    logo: "/clubs/faith-ladies.png",
     zone: "Southern",
     region: "Greater Accra",
     founded: 2021,
@@ -87,6 +90,7 @@ const mockClubs: Club[] = [
   {
     id: "4",
     name: "Pearl Pia Ladies F.C.",
+    logo: "/clubs/pearlpia.jpeg",
     zone: "Northern",
     region: "Northern",
     founded: 2015,
@@ -98,6 +102,7 @@ const mockClubs: Club[] = [
   {
     id: "5",
     name: "Thunder Queens F.C.",
+    logo: "/clubs/thunder-queens.jpeg",
     zone: "Southern",
     region: "Greater Accra",
     founded: 2010,
@@ -109,6 +114,7 @@ const mockClubs: Club[] = [
   {
     id: "6",
     name: "Dreamz Ladies F.C.",
+    // logo: "/clubs/thunder-queens.jpeg",
     zone: "Northern",
     region: "Ashanti",
     founded: 2020,
@@ -120,6 +126,7 @@ const mockClubs: Club[] = [
   {
     id: "7",
     name: "Soccer Intellectuals Ladies F.C.",
+    logo: "/clubs/soccer-intellectuals.png",
     zone: "Southern",
     region: "Central",
     founded: 2012,
@@ -131,6 +138,7 @@ const mockClubs: Club[] = [
   {
     id: "8",
     name: "Berry Ladies F.C.",
+    logo: "/clubs/berry-ladies.jpeg",
     zone: "Southern",
     region: "Greater Accra",
     founded: 2018,

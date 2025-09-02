@@ -9,7 +9,7 @@ import "./globals.css"
 export const metadata: Metadata = {
   title: "GFA Women's Transfer System",
   description: "Ghana Football Association Women's Football Transfer Management Platform",
-  generator: "v0.app",
+  generator: "pascal",
 }
 
 export default function RootLayout({

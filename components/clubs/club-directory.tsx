@@ -6,9 +6,11 @@ import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Building2, Search, MapPin, Calendar, Users } from "lucide-react"
 import { useRouter } from "next/navigation"
 import type { Club } from "@/lib/types"
+import Link from "next/link"
 
 interface ClubDirectoryProps {
   clubs: Club[]
@@ -88,46 +90,38 @@ export function ClubDirectory({ clubs }: ClubDirectoryProps) {
 
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
         {filteredClubs.map((club) => (
-          <Card key={club.id} className="hover:shadow-md transition-shadow">
-            <CardHeader className="pb-3">
-              <div className="flex items-start justify-between">
-                <div className="flex items-center gap-3">
-                  <div className="p-2 bg-primary/10 rounded-full">
-                    <Building2 className="h-5 w-5 text-primary" />
+          <Card key={club.id} className="hover:shadow-md transition-shadow group">
+            <CardContent className="p-4">
+              <Link href={`/clubs/${club.id}`}>
+              <div className="flex items-center gap-3">
+                <Avatar className="size-14 border-2 border-muted">
+                  <AvatarImage src={club.logo} alt={club.name} />
+                  <AvatarFallback className="bg-muted-foreground text-white font-bold">{club.name.charAt(0)}</AvatarFallback>
+                </Avatar>
+                
+                <div className="space-y-1 flex-1 min-w-0">
+                  <div className="flex items-center justify-between gap-2">
+                    <h3 className="font-semibold truncate">{club.name}</h3>
+                    <Badge className={`${getZoneColor(club.zone)} text-xs`}>
+                      {club.zone}
+                    </Badge>
                   </div>
-                  <div>
-                    <CardTitle className="text-lg">{club.name}</CardTitle>
-                    <Badge className={getZoneColor(club.zone)}>{club.zone} Zone</Badge>
+                  
+                  <div className="flex items-center gap-4 text-sm text-muted-foreground">
+                    <div className="flex items-center gap-1">
+                      <MapPin className="h-3 w-3" />
+                      <span className="truncate">{club.region}</span>
+                    </div>
+                    {club.founded && (
+                      <div className="flex items-center gap-1">
+                        <Calendar className="h-3 w-3" />
+                        <span>{club.founded}</span>
+                      </div>
+                    )}
                   </div>
                 </div>
               </div>
-            </CardHeader>
-            <CardContent className="space-y-3">
-              <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                <MapPin className="h-4 w-4" />
-                <span>{club.region}</span>
-              </div>
-
-              {club.founded && (
-                <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                  <Calendar className="h-4 w-4" />
-                  <span>Founded {club.founded}</span>
-                </div>
-              )}
-
-              {club.description && <p className="text-sm text-muted-foreground line-clamp-2">{club.description}</p>}
-
-              <div className="pt-2">
-                <Button
-                  variant="outline"
-                  size="sm"
-                  className="w-full bg-transparent"
-                  onClick={() => router.push(`/clubs/${club.id}`)}
-                >
-                  <Users className="h-4 w-4 mr-2" />
-                  View Details
-                </Button>
-              </div>
+              </Link>
             </CardContent>
           </Card>
         ))}

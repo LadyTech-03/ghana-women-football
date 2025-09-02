@@ -13,6 +13,7 @@ import {
 import { Badge } from "@/components/ui/badge"
 import { useAuthStore } from "@/lib/store"
 import { useRouter } from "next/navigation"
+import Image from "next/image"
 
 export function Header() {
   const { user, logout } = useAuthStore()
@@ -24,16 +25,20 @@ export function Header() {
   }
 
   return (
-    <header className="border-b bg-card">
+    <header className="border-b bg-card sticky top-0 z-50">
       <div className="flex h-16 items-center justify-between px-6">
         <div className="flex items-center space-x-4">
           <div className="flex items-center space-x-2">
-            <div className="h-8 w-8 rounded-full bg-primary flex items-center justify-center">
-              <span className="text-primary-foreground font-bold text-sm">GFA</span>
-            </div>
+            <Image
+              src="/gfa.png"
+              alt="GHANA WOMEN'S FOOTBALL"
+              width={32}
+              height={32}
+              className="rounded-full"
+            />
             <div>
-              <h1 className="text-lg font-semibold">GFA Transfer System</h1>
-              <p className="text-xs text-muted-foreground">Women's Football</p>
+              <h1 className="text-lg font-bold">GHANA WOMEN'S FOOTBALL</h1>
+              <p className="text-md font-semibold text-foreground">TRANSFER SYSTEM</p>
             </div>
           </div>
         </div>

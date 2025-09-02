@@ -3,6 +3,7 @@
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { ArrowRight, Shield, Users, Heart } from "lucide-react"
+import Image from "next/image"
 import Link from "next/link"
 import { useEffect, useState } from "react"
 
@@ -53,7 +54,7 @@ export default function HomePage() {
         ))}
       </div>
 
-      <div className="absolute inset-0 bg-gradient-to-br from-black/60 via-black/40 to-black/60 z-10" />
+      <div className="absolute inset-0 bg-gradient-to-br from-black/20 via-black/10 to-black/20 z-10" />
 
       {/* Content */}
       <div className="relative z-20">
@@ -61,9 +62,7 @@ export default function HomePage() {
         <header className="border-b border-white/10 bg-black/20 backdrop-blur-md supports-[backdrop-filter]:bg-black/10">
           <div className="container mx-auto px-4 py-4 flex items-center justify-between">
             <div className="flex items-center space-x-3">
-              <div className="h-10 w-10 rounded-full bg-primary flex items-center justify-center">
-                <span className="text-primary-foreground font-bold text-sm">GFA</span>
-              </div>
+              <Image src="/gfa.png" alt="GFA Logo" width={64} height={64} />
               <div>
                 <h1 className="font-bold text-lg text-white">Ghana Football Association</h1>
                 <p className="text-xs text-white/70">Women's Football Management</p>
@@ -71,10 +70,10 @@ export default function HomePage() {
             </div>
             <div className="flex items-center space-x-2">
               <Button variant="ghost" asChild className="text-white hover:bg-white/10">
-                <Link href="/login">Admin Login</Link>
+                <Link className="text-lg" href="/login">Make Transfer</Link>
               </Button>
               <Button variant="outline" asChild className="border-white/20 text-white hover:bg-white/10 bg-transparent">
-                <Link href="/player-login">Player Login</Link>
+                <Link className="text-lg" href="/player-login">Player Support</Link>
               </Button>
             </div>
           </div>
@@ -83,26 +82,22 @@ export default function HomePage() {
         {/* Hero Section */}
         <main className="container mx-auto px-4 py-20">
           <div className="text-center mb-20">
-            <div className="inline-flex items-center space-x-2 bg-primary/20 backdrop-blur-sm text-primary-foreground px-6 py-3 rounded-full text-sm font-medium mb-8 border border-primary/30">
-              <Shield className="h-4 w-4" />
-              <span>Empowering Ghana Women's Football</span>
-            </div>
 
             <div className="mb-6">
               <h1 className="text-5xl md:text-7xl font-bold text-white text-balance mb-4 leading-tight">
-                Modern Football
-                <span className="text-primary block bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-                  Management System
+                GHANA WOMENS FOOTBALL
+                <span className="block bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+                  Transfer & Support
                 </span>
               </h1>
               <div className="text-lg text-white/80 font-medium mb-2">{heroBackgrounds[currentBg].title}</div>
               <div className="text-sm text-white/60">{heroBackgrounds[currentBg].subtitle}</div>
             </div>
 
-            <p className="text-xl text-white/90 text-balance max-w-3xl mx-auto mb-16 leading-relaxed">
+            {/* <p className="text-xl text-white/90 text-balance max-w-3xl mx-auto mb-16 leading-relaxed">
               Streamlining transfers, supporting player wellbeing, and advancing women's football in Ghana through
               innovative digital solutions and comprehensive support systems.
-            </p>
+            </p> */}
 
             <div className="flex justify-center space-x-2 mb-12">
               {heroBackgrounds.map((_, index) => (
@@ -137,7 +132,7 @@ export default function HomePage() {
                 </p>
                 <Button asChild size="lg" className="w-full group text-lg py-6 bg-primary hover:bg-primary/90">
                   <Link href="/login">
-                    Access Transfer System
+                    Transfer System
                     <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-2 transition-transform duration-300" />
                   </Link>
                 </Button>
@@ -167,7 +162,7 @@ export default function HomePage() {
                   className="w-full group text-lg py-6 bg-accent hover:bg-accent/90 text-accent-foreground"
                 >
                   <Link href="/player-login">
-                    Access Player Support
+                    Menstural Health & Player Support
                     <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-2 transition-transform duration-300" />
                   </Link>
                 </Button>
@@ -211,7 +206,7 @@ export default function HomePage() {
         <footer className="border-t border-white/10 bg-black/20 backdrop-blur-md py-12">
           <div className="container mx-auto px-4 text-center">
             <p className="text-white/70 text-lg">
-              © 2024 Ghana Football Association. Empowering women's football through technology.
+              © 2025 Ghana Women Football Association.
             </p>
           </div>
         </footer>

@@ -10,6 +10,7 @@ import { Checkbox } from "@/components/ui/checkbox"
 import { useAuthStore } from "@/lib/store"
 import { Loader2, Eye, EyeOff, ArrowLeft } from "lucide-react"
 import Link from "next/link"
+import Image from "next/image"
 
 export function ModernLoginForm() {
   const [email, setEmail] = useState("")
@@ -51,13 +52,18 @@ export function ModernLoginForm() {
 
       {/* Header */}
       <div className="text-center space-y-4">
-        <div className="mx-auto h-16 w-16 rounded-full bg-gradient-to-r from-primary to-secondary flex items-center justify-center shadow-lg">
-          <span className="text-primary-foreground font-bold text-xl">GFA</span>
-        </div>
+        <Image
+          src="/gfa.png"
+          alt="GFA Logo"
+          width={80}
+          height={80}
+          className="mx-auto"
+        />
         <div className="space-y-2">
-          <h1 className="text-3xl font-bold tracking-tight text-balance">Welcome Back</h1>
+          <h1 className="text-3xl font-bold tracking-tight text-balance">GHANA WOMEN'S FOOTBALL
+TRANSFER SYSTEM</h1>
           <p className="text-muted-foreground text-pretty">
-            Sign in to the Ghana Football Association Women's Transfer System
+            Sign in to your account
           </p>
         </div>
       </div>

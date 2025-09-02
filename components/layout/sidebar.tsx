@@ -8,15 +8,16 @@ import { Button } from "@/components/ui/button"
 import { useAuthStore } from "@/lib/store"
 import {
   LayoutDashboard,
-  FileText,
-  Building2,
+  ArrowLeftRight ,
+  ShieldHalf,
   BarChart3,
   HelpCircle,
   ChevronLeft,
-  ChevronRight,
+  Menu,
   ClipboardCheck,
   Plus,
 } from "lucide-react"
+import Image from "next/image"
 
 const getNavigationForRole = (role: string) => {
   const baseNavigation = [{ name: "Dashboard", href: "/dashboard", icon: LayoutDashboard }]
@@ -25,22 +26,22 @@ const getNavigationForRole = (role: string) => {
     case "club_admin":
       return [
         ...baseNavigation,
-        { name: "My Transfers", href: "/transfers", icon: FileText },
+        { name: "My Transfers", href: "/transfers", icon: ArrowLeftRight  },
         { name: "Submit Transfer", href: "/transfers/new", icon: Plus },
-        { name: "Club Directory", href: "/clubs", icon: Building2 },
+        { name: "Club Directory", href: "/clubs", icon: ShieldHalf },
         { name: "Reports", href: "/reports", icon: BarChart3 },
         { name: "Help", href: "/help", icon: HelpCircle },
       ]
     case "gfa_reviewer":
       return [
         ...baseNavigation,
-        { name: "Transfers", href: "/transfers", icon: FileText },
+        { name: "Transfers", href: "/transfers", icon: ArrowLeftRight  },
         { name: "Review", href: "/review", icon: ClipboardCheck },
       ]
     case "caf_official":
       return [
         ...baseNavigation,
-        { name: "International Transfers", href: "/transfers", icon: FileText },
+        { name: "International Transfers", href: "/transfers", icon: ArrowLeftRight  },
         { name: "Review", href: "/review", icon: ClipboardCheck },
         { name: "Reports", href: "/reports", icon: BarChart3 },
         { name: "Help", href: "/help", icon: HelpCircle },
@@ -58,15 +59,9 @@ export function Sidebar() {
   const navigation = getNavigationForRole(user?.role || "club_admin")
 
   return (
-    <div className={cn("flex flex-col border-r bg-sidebar transition-all duration-300", collapsed ? "w-16" : "w-64")}>
-      <div className="flex h-16 items-center justify-between px-4 border-b">
-        {!collapsed && <span className="text-sm font-medium text-sidebar-foreground">Navigation</span>}
-        <Button variant="ghost" size="icon" onClick={() => setCollapsed(!collapsed)} className="h-8 w-8">
-          {collapsed ? <ChevronRight className="h-4 w-4" /> : <ChevronLeft className="h-4 w-4" />}
-        </Button>
-      </div>
+    <div className={cn("flex fixed w-64 flex-col border-r bg-sidebar transition-all duration-300 left-0 h-[calc(100vh-4rem)]")}>
 
-      <nav className="flex-1 space-y-1 p-2">
+      <nav className="flex flex-col space-y-2 p-2 mt-4">
         {navigation.map((item) => {
           const isActive = pathname === item.href
           return (
@@ -75,8 +70,8 @@ export function Sidebar() {
                 variant={isActive ? "secondary" : "ghost"}
                 className={cn("w-full justify-start", collapsed && "px-2")}
               >
-                <item.icon className="h-4 w-4" />
-                {!collapsed && <span className="ml-2">{item.name}</span>}
+                <item.icon className="h-4 w-4"/>
+                {!collapsed && <span className="ml-2 text-lg">{item.name}</span>}
               </Button>
             </Link>
           )

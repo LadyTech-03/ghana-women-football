@@ -11,6 +11,7 @@ import { Checkbox } from "@/components/ui/checkbox"
 import { Eye, EyeOff, Heart, ArrowLeft, Shield, Users, BookOpen } from "lucide-react"
 import Link from "next/link"
 import { useAuthStore } from "@/lib/store"
+import Image from "next/image"
 
 export default function PlayerLoginPage() {
   const [email, setEmail] = useState("")
@@ -48,23 +49,27 @@ export default function PlayerLoginPage() {
               Back to Home
             </Link>
             <div className="flex items-center justify-center space-x-3 mb-6">
-              <div className="h-14 w-14 rounded-full bg-gradient-to-r from-red-500/20 to-red-600/20 flex items-center justify-center">
-                <Heart className="h-7 w-7 text-red-500" />
-              </div>
+              <Image 
+              src={'/gfa.png'}
+              width={42}
+              height={42}
+              alt="logo"
+
+              />
               <div className="text-left">
                 <h1 className="text-xl font-bold bg-gradient-to-r from-red-600 to-yellow-600 bg-clip-text text-transparent">
-                  Player Support
+                  GHANA WOMEN'S FOOTBALL
                 </h1>
-                <p className="text-sm text-muted-foreground">Confidential & Secure Platform</p>
+                {/* <p className="text-sm text-muted-foreground">Confidential & Secure Platform</p> */}
               </div>
             </div>
           </div>
 
           <Card className="border-0 shadow-xl bg-card/50 backdrop-blur-sm">
             <CardHeader className="text-center pb-6">
-              <CardTitle className="text-2xl">Welcome Back</CardTitle>
+              <CardTitle className="text-2xl">PLAYER SUPPORT</CardTitle>
               <CardDescription className="text-base">
-                Access your confidential support resources and wellbeing tools
+                Sign in to your account.
               </CardDescription>
             </CardHeader>
             <CardContent className="space-y-6">
@@ -132,7 +137,7 @@ export default function PlayerLoginPage() {
 
                 <Button
                   type="submit"
-                  className="w-full h-11 bg-gradient-to-r from-red-500 via-yellow-500 to-green-500 hover:from-red-600 hover:via-yellow-600 hover:to-green-600 text-white font-medium"
+                  className="w-full h-11 font-medium"
                   disabled={loading}
                 >
                   {loading ? "Signing in..." : "Sign In Securely"}
