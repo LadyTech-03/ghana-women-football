@@ -2,7 +2,7 @@
 
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
-import { ArrowRight, Shield, Users, Heart } from "lucide-react"
+import { ArrowRight, Shield, Users, Heart, Calendar } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
 import { useEffect, useState } from "react"
@@ -22,6 +22,44 @@ const heroBackgrounds = [
     image: "/female-footballer-striker.png",
     title: "Skill & Determination",
     subtitle: "Showcasing world-class talent",
+  },
+]
+
+// Mock data for clubs
+const featuredClubs = [
+  { id: 1, name: "Ampem Darkoa Ladies", logo: "/club-logos/ampem-darkoa.png", zone: "Northern" },
+  { id: 2, name: "Hasaacas Ladies", logo: "/club-logos/hasaacas.png", zone: "Southern" },
+  { id: 3, name: "Faith Ladies", logo: "/club-logos/faith.png", zone: "Southern" },
+  { id: 4, name: "Prisons Ladies", logo: "/club-logos/prisons.png", zone: "Northern" },
+  { id: 5, name: "Sea Lions", logo: "/club-logos/sea-lions.png", zone: "Southern" },
+  { id: 6, name: "Northern Ladies", logo: "/club-logos/northern.png", zone: "Northern" },
+]
+
+// Mock news data
+const latestNews = [
+  {
+    id: 1,
+    title: "Ghana Women's Premier League Season Kicks Off",
+    excerpt: "The new season promises exciting matches with enhanced player support systems.",
+    date: "2025-01-15",
+    image: "/news/season-kickoff.png",
+    category: "League",
+  },
+  {
+    id: 2,
+    title: "New Transfer Window Opens with Digital Platform",
+    excerpt: "Streamlined digital processes make transfers more efficient for all clubs.",
+    date: "2025-01-10",
+    image: "/news/transfer-window.png",
+    category: "Transfers",
+  },
+  {
+    id: 3,
+    title: "Player Wellbeing Initiative Launched",
+    excerpt: "Comprehensive support system for menstrual health and player welfare introduced.",
+    date: "2025-01-08",
+    image: "/news/wellbeing.png",
+    category: "Wellbeing",
   },
 ]
 
@@ -68,12 +106,30 @@ export default function HomePage() {
                 <p className="text-xs text-white/70">Women's Football Management</p>
               </div>
             </div>
+            <nav className="hidden md:flex items-center space-x-6">
+              <Link href="/public-players" className="text-white/80 hover:text-white transition-colors">
+                Players
+              </Link>
+              <Link href="/public-clubs" className="text-white/80 hover:text-white transition-colors">
+                Clubs
+              </Link>
+              <Link href="/public-tables" className="text-white/80 hover:text-white transition-colors">
+                Tables
+              </Link>
+              <Link href="/public-news" className="text-white/80 hover:text-white transition-colors">
+                News
+              </Link>
+            </nav>
             <div className="flex items-center space-x-2">
               <Button variant="ghost" asChild className="text-white hover:bg-white/10">
-                <Link className="text-lg" href="/login">Make Transfer</Link>
+                <Link className="text-lg" href="/login">
+                  Make Transfer
+                </Link>
               </Button>
               <Button variant="outline" asChild className="border-white/20 text-white hover:bg-white/10 bg-transparent">
-                <Link className="text-lg" href="/player-login">Player Support</Link>
+                <Link className="text-lg" href="/player-login">
+                  Player Support
+                </Link>
               </Button>
             </div>
           </div>
@@ -82,7 +138,6 @@ export default function HomePage() {
         {/* Hero Section */}
         <main className="container mx-auto px-4 py-20">
           <div className="text-center mb-20">
-
             <div className="mb-6">
               <h1 className="text-5xl md:text-7xl font-bold text-white text-balance mb-4 leading-tight">
                 GHANA WOMENS FOOTBALL
@@ -93,11 +148,6 @@ export default function HomePage() {
               <div className="text-lg text-white/80 font-medium mb-2">{heroBackgrounds[currentBg].title}</div>
               <div className="text-sm text-white/60">{heroBackgrounds[currentBg].subtitle}</div>
             </div>
-
-            {/* <p className="text-xl text-white/90 text-balance max-w-3xl mx-auto mb-16 leading-relaxed">
-              Streamlining transfers, supporting player wellbeing, and advancing women's football in Ghana through
-              innovative digital solutions and comprehensive support systems.
-            </p> */}
 
             <div className="flex justify-center space-x-2 mb-12">
               {heroBackgrounds.map((_, index) => (
@@ -162,13 +212,91 @@ export default function HomePage() {
                   className="w-full group text-lg py-6 bg-accent hover:bg-accent/90 text-accent-foreground"
                 >
                   <Link href="/player-login">
-                    Menstural Health & Player Support
+                    Menstrual Health & Player Support
                     <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-2 transition-transform duration-300" />
                   </Link>
                 </Button>
               </CardContent>
             </Card>
           </div>
+
+          <section className="mb-20">
+            <div className="text-center mb-12">
+              <h2 className="text-4xl font-bold text-white mb-4">Our Clubs</h2>
+              <p className="text-white/80 text-lg max-w-2xl mx-auto">
+                Discover the powerhouse clubs driving Ghana's women's football forward
+              </p>
+            </div>
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 max-w-6xl mx-auto">
+              {featuredClubs.map((club) => (
+                <Link key={club.id} href={`/public-clubs/${club.id}`}>
+                  <Card className="group hover:shadow-xl transition-all duration-300 bg-black/40 backdrop-blur-md border-white/10 hover:border-primary/40 hover:scale-105">
+                    <CardContent className="p-6 text-center">
+                      <div className="h-16 w-16 mx-auto mb-4 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center group-hover:bg-white/20 transition-all duration-300">
+                        <div className="h-12 w-12 rounded-full bg-primary/20 flex items-center justify-center">
+                          <span className="text-primary font-bold text-lg">{club.name.charAt(0)}</span>
+                        </div>
+                      </div>
+                      <h3 className="font-semibold text-white text-sm mb-2 group-hover:text-primary transition-colors">
+                        {club.name}
+                      </h3>
+                      <p className="text-xs text-white/60">{club.zone} Zone</p>
+                    </CardContent>
+                  </Card>
+                </Link>
+              ))}
+            </div>
+            <div className="text-center mt-8">
+              <Button asChild variant="outline" className="border-white/20 text-white hover:bg-white/10 bg-transparent">
+                <Link href="/public-clubs">
+                  View All Clubs
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </Link>
+              </Button>
+            </div>
+          </section>
+
+          <section className="mb-20">
+            <div className="text-center mb-12">
+              <h2 className="text-4xl font-bold text-white mb-4">Latest News</h2>
+              <p className="text-white/80 text-lg max-w-2xl mx-auto">
+                Stay updated with the latest developments in Ghana's women's football
+              </p>
+            </div>
+            <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+              {latestNews.map((article) => (
+                <Link key={article.id} href={`/public-news/${article.id}`}>
+                  <Card className="group hover:shadow-xl transition-all duration-300 bg-black/40 backdrop-blur-md border-white/10 hover:border-primary/40 hover:scale-105 h-full">
+                    <CardContent className="p-0">
+                      <div className="h-48 bg-gradient-to-br from-primary/20 to-accent/20 rounded-t-lg flex items-center justify-center">
+                        <Calendar className="h-12 w-12 text-white/60" />
+                      </div>
+                      <div className="p-6">
+                        <div className="flex items-center justify-between mb-3">
+                          <span className="text-xs bg-primary/20 text-primary px-2 py-1 rounded-full">
+                            {article.category}
+                          </span>
+                          <span className="text-xs text-white/60">{article.date}</span>
+                        </div>
+                        <h3 className="font-bold text-white mb-3 group-hover:text-primary transition-colors">
+                          {article.title}
+                        </h3>
+                        <p className="text-white/80 text-sm leading-relaxed">{article.excerpt}</p>
+                      </div>
+                    </CardContent>
+                  </Card>
+                </Link>
+              ))}
+            </div>
+            <div className="text-center mt-8">
+              <Button asChild variant="outline" className="border-white/20 text-white hover:bg-white/10 bg-transparent">
+                <Link href="/public-news">
+                  View All News
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </Link>
+              </Button>
+            </div>
+          </section>
 
           {/* Features Grid */}
           <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
@@ -205,9 +333,7 @@ export default function HomePage() {
         {/* Footer */}
         <footer className="border-t border-white/10 bg-black/20 backdrop-blur-md py-12">
           <div className="container mx-auto px-4 text-center">
-            <p className="text-white/70 text-lg">
-              © 2025 Ghana Women Football Association.
-            </p>
+            <p className="text-white/70 text-lg">© 2025 Ghana Women Football Association.</p>
           </div>
         </footer>
       </div>
