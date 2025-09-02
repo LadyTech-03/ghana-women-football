@@ -6,6 +6,9 @@ import { ArrowRight, Shield, Users, Heart, Calendar } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
 import { useEffect, useState } from "react"
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
+import SeasonCountdown from "@/components/season-countdown"
+
 
 const heroBackgrounds = [
   {
@@ -27,12 +30,104 @@ const heroBackgrounds = [
 
 // Mock data for clubs
 const featuredClubs = [
-  { id: 1, name: "Ampem Darkoa Ladies", logo: "/club-logos/ampem-darkoa.png", zone: "Northern" },
-  { id: 2, name: "Hasaacas Ladies", logo: "/club-logos/hasaacas.png", zone: "Southern" },
-  { id: 3, name: "Faith Ladies", logo: "/club-logos/faith.png", zone: "Southern" },
-  { id: 4, name: "Prisons Ladies", logo: "/club-logos/prisons.png", zone: "Northern" },
-  { id: 5, name: "Sea Lions", logo: "/club-logos/sea-lions.png", zone: "Southern" },
-  { id: 6, name: "Northern Ladies", logo: "/club-logos/northern.png", zone: "Northern" },
+  {
+    id: "1",
+    name: "Ampem Darkoa Ladies F.C.",
+    logo: "/clubs/ampem-darkoa.png",
+    zone: "Northern",
+    region: "Bono East",
+    founded: 2009,
+    description:
+      "One of Ghana's most successful women's football clubs, known for developing young talent and competing at the highest level.",
+    stadium: "Techiman Park",
+    coach: "Joe Nana Adarkwa",
+    achievements: ["Ghana Women's Premier League Champions 2021", "WAFU Zone B Champions 2022"],
+  },
+  {
+    id: "2",
+    name: "Hasaacas Ladies",
+    logo: "/clubs/hasaacas.jpeg",
+    zone: "Southern",
+    region: "Western",
+    founded: 2003,
+    description:
+      "The most decorated women's football club in Ghana with multiple league titles and continental success.",
+    stadium: "Gyandu Park",
+    coach: "Yusif Basigi",
+    achievements: ["CAF Women's Champions League Runners-up 2021", "Multiple Ghana Premier League titles"],
+  },
+  {
+    id: "3",
+    name: "Faith Ladies F.C.",
+    logo: "/clubs/faith-ladies.png",
+    zone: "Southern",
+    region: "Greater Accra",
+    founded: 2021,
+    description: "A rising force in Ghana women's football, focused on youth development and modern training methods.",
+    stadium: "McDan La Town Park",
+    coach: "Samuel Boadu",
+    achievements: ["Ghana Women's FA Cup Finalists 2023"],
+  },
+  {
+    id: "4",
+    name: "Pearl Pia Ladies F.C.",
+    logo: "/clubs/pearlpia.jpeg",
+    zone: "Northern",
+    region: "Northern",
+    founded: 2015,
+    description: "A club with a strong community presence and competitive spirit.",
+    stadium: "Pia Stadium",
+    coach: "Jane Doe",
+    achievements: ["Ghana Women's Premier League Runner-up 2022"],
+  },
+  {
+    id: "5",
+    name: "Thunder Queens F.C.",
+    logo: "/clubs/thunder-queens.jpeg",
+    zone: "Southern",
+    region: "Greater Accra",
+    founded: 2010,
+    description: "A club known for its aggressive playing style and passionate fans.",
+    stadium: "Thunder Park",
+    coach: "John Smith",
+    achievements: ["WAFU Zone A Champions 2020"],
+  },
+  {
+    id: "6",
+    name: "Dreamz Ladies F.C.",
+    // logo: "/clubs/thunder-queens.jpeg",
+    zone: "Northern",
+    region: "Ashanti",
+    founded: 2020,
+    description: "A club that emphasizes creativity and skill in its approach to football.",
+    stadium: "Dreamz Stadium",
+    coach: "Emily Johnson",
+    achievements: ["Ghana Women's Premier League Finalists 2021"],
+  },
+  {
+    id: "7",
+    name: "Soccer Intellectuals Ladies F.C.",
+    logo: "/clubs/soccer-intellectuals.png",
+    zone: "Southern",
+    region: "Central",
+    founded: 2012,
+    description: "A club that values education and sportsmanship alongside football.",
+    stadium: "Intellectuals Park",
+    coach: "Michael Brown",
+    achievements: ["Ghana Women's FA Cup Winners 2019"],
+  },
+  {
+    id: "8",
+    name: "Berry Ladies F.C.",
+    logo: "/clubs/berry-ladies.jpeg",
+    zone: "Southern",
+    region: "Greater Accra",
+    founded: 2018,
+    description: "A club that has been steadily improving and gaining recognition.",
+    stadium: "Berry Park",
+    coach: "Sarah White",
+    achievements: ["Ghana Women's Premier League Semi-Finalists 2022"],
+  },
 ]
 
 // Mock news data
@@ -187,7 +282,7 @@ export default function HomePage() {
                   </Link>
                 </Button>
               </CardContent>
-            </Card>
+            </Card>            
 
             {/* Player Support Card */}
             <Card className="group hover:shadow-2xl transition-all duration-500 border-2 hover:border-accent/40 bg-black/40 backdrop-blur-md border-white/10 hover:scale-105">
@@ -220,27 +315,29 @@ export default function HomePage() {
             </Card>
           </div>
 
+          {/* Season Countdown Banner */}
+          <div className="mb-20 max-w-6xl mx-auto">
+            <SeasonCountdown />
+          </div>
+
           <section className="mb-20">
             <div className="text-center mb-12">
               <h2 className="text-4xl font-bold text-white mb-4">Our Clubs</h2>
-              <p className="text-white/80 text-lg max-w-2xl mx-auto">
-                Discover the powerhouse clubs driving Ghana's women's football forward
-              </p>
             </div>
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 max-w-6xl mx-auto">
               {featuredClubs.map((club) => (
                 <Link key={club.id} href={`/public-clubs/${club.id}`}>
                   <Card className="group hover:shadow-xl transition-all duration-300 bg-black/40 backdrop-blur-md border-white/10 hover:border-primary/40 hover:scale-105">
-                    <CardContent className="p-6 text-center">
-                      <div className="h-16 w-16 mx-auto mb-4 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center group-hover:bg-white/20 transition-all duration-300">
-                        <div className="h-12 w-12 rounded-full bg-primary/20 flex items-center justify-center">
-                          <span className="text-primary font-bold text-lg">{club.name.charAt(0)}</span>
+                    <CardContent className="p-2 text-center">
+                      <div className="mx-auto mb-4 rounded-full flex items-center justify-center transition-all duration-300">
+                        <div className="rounded-full flex items-center justify-center">
+                          <Avatar className="size-34">
+                            <AvatarImage src={club.logo} alt={`${club.name} logo`} />
+                            <AvatarFallback>{club.name.charAt(0)}</AvatarFallback>
+                          </Avatar>
                         </div>
                       </div>
-                      <h3 className="font-semibold text-white text-sm mb-2 group-hover:text-primary transition-colors">
-                        {club.name}
-                      </h3>
-                      <p className="text-xs text-white/60">{club.zone} Zone</p>
+                      
                     </CardContent>
                   </Card>
                 </Link>
@@ -259,18 +356,12 @@ export default function HomePage() {
           <section className="mb-20">
             <div className="text-center mb-12">
               <h2 className="text-4xl font-bold text-white mb-4">Latest News</h2>
-              <p className="text-white/80 text-lg max-w-2xl mx-auto">
-                Stay updated with the latest developments in Ghana's women's football
-              </p>
             </div>
             <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
               {latestNews.map((article) => (
                 <Link key={article.id} href={`/public-news/${article.id}`}>
                   <Card className="group hover:shadow-xl transition-all duration-300 bg-black/40 backdrop-blur-md border-white/10 hover:border-primary/40 hover:scale-105 h-full">
                     <CardContent className="p-0">
-                      <div className="h-48 bg-gradient-to-br from-primary/20 to-accent/20 rounded-t-lg flex items-center justify-center">
-                        <Calendar className="h-12 w-12 text-white/60" />
-                      </div>
                       <div className="p-6">
                         <div className="flex items-center justify-between mb-3">
                           <span className="text-xs bg-primary/20 text-primary px-2 py-1 rounded-full">
@@ -298,36 +389,6 @@ export default function HomePage() {
             </div>
           </section>
 
-          {/* Features Grid */}
-          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            <div className="text-center p-8 bg-black/30 backdrop-blur-sm rounded-xl border border-white/10 hover:bg-black/40 transition-all duration-300">
-              <div className="h-16 w-16 rounded-xl bg-primary/20 backdrop-blur-sm flex items-center justify-center mx-auto mb-6">
-                <Shield className="h-8 w-8 text-primary" />
-              </div>
-              <h3 className="font-bold text-xl mb-4 text-white">Secure & Confidential</h3>
-              <p className="text-white/80 leading-relaxed">
-                End-to-end encryption and role-based access ensure complete data privacy and security for all users.
-              </p>
-            </div>
-            <div className="text-center p-8 bg-black/30 backdrop-blur-sm rounded-xl border border-white/10 hover:bg-black/40 transition-all duration-300">
-              <div className="h-16 w-16 rounded-xl bg-accent/20 backdrop-blur-sm flex items-center justify-center mx-auto mb-6">
-                <Users className="h-8 w-8 text-accent" />
-              </div>
-              <h3 className="font-bold text-xl mb-4 text-white">Multi-Role Support</h3>
-              <p className="text-white/80 leading-relaxed">
-                Tailored interfaces for clubs, GFA officials, and players with appropriate access levels and workflows.
-              </p>
-            </div>
-            <div className="text-center p-8 bg-black/30 backdrop-blur-sm rounded-xl border border-white/10 hover:bg-black/40 transition-all duration-300">
-              <div className="h-16 w-16 rounded-xl bg-secondary/20 backdrop-blur-sm flex items-center justify-center mx-auto mb-6">
-                <Heart className="h-8 w-8 text-secondary" />
-              </div>
-              <h3 className="font-bold text-xl mb-4 text-white">Player-Centered</h3>
-              <p className="text-white/80 leading-relaxed">
-                Comprehensive support system prioritizing player health, wellbeing, and professional development.
-              </p>
-            </div>
-          </div>
         </main>
 
         {/* Footer */}

@@ -99,7 +99,6 @@ export default function PublicNewsPage() {
             </Button>
           </div>
           <h1 className="text-5xl font-bold mb-4">Latest News</h1>
-          <p className="text-xl text-white/90">Stay updated with the latest developments in Ghana's women's football</p>
         </div>
       </div>
 

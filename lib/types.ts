@@ -17,7 +17,9 @@ export interface Club {
   logo?: string
   stadium?: string
   coach?: string
-  achievements?: string[]
+  achievements?: string[],
+  previousPosition?: number,
+  theme?: string
 }
 
 export interface Player {

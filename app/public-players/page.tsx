@@ -1,12 +1,13 @@
 "use client"
 
 import { Button } from "@/components/ui/button"
-import { Card, CardContent } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Badge } from "@/components/ui/badge"
 import { Search, ArrowLeft } from "lucide-react"
 import Link from "next/link"
 import { useState } from "react"
+import Image from "next/image"
+import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar"
 
 // Mock player data
 const players = [
@@ -17,8 +18,11 @@ const players = [
     club: "Ampem Darkoa Ladies",
     nationality: "Ghana",
     age: 24,
-    image: "/female-footballer-striker.png",
+    image: "/players/abbi-grant.png",
     zone: "Northern",
+    jerseyNumber: 11,
+    clubLogo: "/clubs/ampem-darkoa.png",
+    theme: "blue",
   },
   {
     id: 2,
@@ -27,8 +31,11 @@ const players = [
     club: "Hasaacas Ladies",
     nationality: "Ghana",
     age: 22,
-    image: "/female-footballer-midfielder.png",
+    image: "/players/abbie-larkin.png",
     zone: "Southern",
+    jerseyNumber: 21,
+    clubLogo: "/clubs/hasaacas.jpeg",
+    theme: "indigo",
   },
   {
     id: 3,
@@ -37,22 +44,28 @@ const players = [
     club: "Faith Ladies",
     nationality: "Ghana",
     age: 26,
-    image: "/female-footballer-defender.png",
+    image: "/players/abbie-lafayette.png",
     zone: "Southern",
+    jerseyNumber: 3,
+    clubLogo: "/clubs/faith-ladies.png",
+    theme: "red",
   },
   {
     id: 4,
     name: "Abby Holmes",
     position: "Goalkeeper",
-    club: "Northern Ladies",
+    club: "Thunder Queens",
     nationality: "Ghana",
     age: 28,
-    image: "/female-goalkeeper.png",
+    image: "/players/abby-holmes.png",
     zone: "Northern",
+    jerseyNumber: 24,
+    clubLogo: "/clubs/thunder-queens.jpeg",
+    theme: "navy",
   },
 ]
 
-const clubs = ["All Clubs", "Ampem Darkoa Ladies", "Hasaacas Ladies", "Faith Ladies", "Northern Ladies"]
+const clubs = ["All Clubs", "Ampem Darkoa Ladies", "Hasaacas Ladies", "Faith Ladies", "Thunder Queens"]
 const positions = ["All Positions", "Forward", "Midfielder", "Defender", "Goalkeeper"]
 
 export default function PublicPlayersPage() {
@@ -81,7 +94,6 @@ export default function PublicPlayersPage() {
             </Button>
           </div>
           <h1 className="text-5xl font-bold mb-4">Players</h1>
-          <p className="text-xl text-white/90">Discover the talented women driving Ghana's football forward</p>
         </div>
       </div>
 
@@ -135,46 +147,52 @@ export default function PublicPlayersPage() {
         {/* Players Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {filteredPlayers.map((player) => (
-            <Card key={player.id} className="group hover:shadow-xl transition-all duration-300 overflow-hidden">
-              <div className="relative h-64 bg-gradient-to-br from-primary/20 to-accent/20">
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="h-32 w-32 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center">
-                    <span className="text-4xl font-bold text-white">
-                      {player.name
-                        .split(" ")
-                        .map((n) => n[0])
-                        .join("")}
-                    </span>
-                  </div>
+            <div key={player.id} className="group relative h-[480px] rounded-3xl overflow-hidden shadow-lg transition-all duration-300 hover:shadow-2xl">
+              {/* Background */}
+              <div className={getCardBackground(player.theme)} />
+
+              {/* Decorative overlays */}
+              <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(255,255,255,0.18),transparent_40%),radial-gradient(circle_at_85%_10%,rgba(255,255,255,0.12),transparent_35%)]" />
+
+              {/* Jersey number (rotated) */}
+              <div className="absolute -left-4 bottom-10 select-none text-white/15 font-black tracking-tight rotate-90 text-8xl leading-none">
+                {player.jerseyNumber}
+              </div>
+
+              {/* Name */}
+              <div className="absolute top-5 left-5 right-5 text-white drop-shadow-md">
+                <div className="text-base font-semibold uppercase tracking-wider">
+                  {player.name.split(" ")[0]}
                 </div>
-                <div className="absolute top-4 right-4">
-                  <Badge variant="secondary" className="bg-white/20 text-white">
-                    {player.zone}
-                  </Badge>
+                <div className="-mt-1 text-3xl font-extrabold italic">
+                  {player.name.split(" ").slice(1).join(" ")}
                 </div>
               </div>
-              <CardContent className="p-6">
-                <h3 className="font-bold text-xl mb-2 group-hover:text-primary transition-colors">{player.name}</h3>
-                <div className="space-y-2 text-sm text-muted-foreground">
-                  <div className="flex items-center gap-2">
-                    <span className="font-medium">Position:</span>
-                    <Badge variant="outline">{player.position}</Badge>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <span className="font-medium">Club:</span>
-                    <span>{player.club}</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <span className="font-medium">Age:</span>
-                    <span>{player.age}</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <span className="font-medium">Nationality:</span>
-                    <span>{player.nationality}</span>
-                  </div>
+
+              {/* Club logo + zone */}
+              <div className="absolute top-5 right-5 flex items-center gap-2">
+                <Avatar className="h-9 w-9">
+                  <AvatarImage src={player.clubLogo} alt={player.club} />
+                  <AvatarFallback className="text-lg font-bold">{getClubAbbr(player.club)}</AvatarFallback>
+                </Avatar>
+                <div className="text-white text-lg font-bold flex items-center justify-center">
+                    {getClubAbbr(player.club)}
                 </div>
-              </CardContent>
-            </Card>
+              </div>
+
+              {/* Player image */}
+              <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[90%] h-[90%] flex items-end justify-center">
+                <div className="relative w-full h-full">
+                  <Image
+                    src={player.image}
+                    alt={player.name}
+                    fill
+                    sizes="(max-width: 768px) 80vw, (max-width: 1200px) 40vw, 25vw"
+                    className="object-contain object-bottom pointer-events-none transition-transform duration-300 group-hover:scale-[1.03]"
+                  />
+                </div>
+              </div>
+            </div>
           ))}
         </div>
 
@@ -186,4 +204,23 @@ export default function PublicPlayersPage() {
       </div>
     </div>
   )
+}
+
+function getCardBackground(theme: string) {
+  switch (theme) {
+    case "red":
+      return "absolute inset-0 bg-gradient-to-br from-rose-600 to-red-900";
+    case "indigo":
+      return "absolute inset-0 bg-gradient-to-br from-indigo-600 to-indigo-900";
+    case "navy":
+      return "absolute inset-0 bg-gradient-to-br from-blue-900 to-slate-900";
+    default:
+      return "absolute inset-0 bg-gradient-to-br from-blue-700 to-blue-900";
+  }
+}
+
+function getClubAbbr(club: string) {
+  const words = club.split(" ").filter(Boolean)
+  if (words.length === 1) return words[0].slice(0, 3).toUpperCase()
+  return (words[0][0] + words[1][0]).toUpperCase()
 }

@@ -64,7 +64,7 @@ export function MyTransfersTable({ transfers }: MyTransfersTableProps) {
     <Card>
       <CardHeader>
         <CardTitle>My Transfers</CardTitle>
-        <CardDescription>Track and manage your transfer submissions</CardDescription>
+        <CardDescription className="text-md">Track and manage your transfer submissions</CardDescription>
       </CardHeader>
       <CardContent>
         {/* Search and Filter */}
@@ -122,7 +122,7 @@ export function MyTransfersTable({ transfers }: MyTransfersTableProps) {
                   >
                     <TableCell>
                       <div className="flex items-center gap-3">
-                        <Avatar className="h-10 w-10">
+                        <Avatar className="h-14 w-14">
                           <AvatarImage
                             src={transfer.player?.image || "/placeholder.svg"}
                             alt={transfer.player?.name || "Player"}
@@ -135,26 +135,26 @@ export function MyTransfersTable({ transfers }: MyTransfersTableProps) {
                           </AvatarFallback>
                         </Avatar>
                         <div>
-                          <p className="font-medium">{transfer.player?.name || "Unknown Player"}</p>
-                          <p className="text-sm text-muted-foreground">{transfer.player?.position || "Position N/A"}</p>
+                          <p className="font-medium text-lg">{transfer.player?.name || "Unknown Player"}</p>
+                          <p className="text-md text-muted-foreground">{transfer.player?.position || "Position N/A"}</p>
                         </div>
                       </div>
                     </TableCell>
                     <TableCell>
-                      <div className="text-sm">
+                      <div className="text-lg">
                         <div className="font-medium">
                           {transfer.fromClub?.name || "Free Agent"} → {transfer.toClub?.name || "Unknown Club"}
                         </div>
-                        <div className="text-muted-foreground">
+                        <div className="text-muted-foreground text-sm">
                           {transfer.fromClub?.zone || "N/A"} → {transfer.toClub?.zone || "N/A"}
                         </div>
                       </div>
                     </TableCell>
                     <TableCell>
-                      <Badge variant="outline">{transfer.transferType || "N/A"}</Badge>
+                      <Badge className="text-md" variant="outline">{transfer.type || "N/A"}</Badge>
                     </TableCell>
                     <TableCell>{getStatusBadge(transfer.status)}</TableCell>
-                    <TableCell className="text-sm text-muted-foreground">
+                    <TableCell className="text-md text-muted-foreground">
                       {formatDistanceToNow(transfer.submittedAt, { addSuffix: true })}
                     </TableCell>
                     <TableCell>
