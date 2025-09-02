@@ -160,7 +160,7 @@ const testAccounts = {
   },
   gfaReviewer: {
     id: "2",
-    email: "reviewer@gfa.gov.gh",
+    email: "reviewer@gfa.com",
     name: "GFA Reviewer",
     role: "gfa_reviewer" as const,
     clubId: null,
@@ -176,7 +176,7 @@ const testAccounts = {
   },
   player: {
     id: "4",
-    email: "comfort.yeboah@ampemdarkoaladies.com",
+    email: "comfort@gfa.com",
     name: "Comfort Yeboah",
     role: "player" as const,
     clubId: "1",

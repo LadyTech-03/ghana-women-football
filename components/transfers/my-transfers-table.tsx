@@ -50,7 +50,7 @@ export function MyTransfersTable({ transfers }: MyTransfersTableProps) {
 
     const config = statusConfig[status as keyof typeof statusConfig] || statusConfig.submitted
     return (
-      <Badge variant={config.variant} className={config.className}>
+      <Badge variant={config.variant} className={"className" in config ? config.className : undefined}>
         {config.label}
       </Badge>
     )
