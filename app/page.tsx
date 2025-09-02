@@ -211,7 +211,8 @@ export default function HomePage() {
               <Link href="/public-tables" className="text-white/80 hover:text-white transition-colors">
                 Tables
               </Link>
-              <Link href="/public-news" className="text-white/80 hover:text-white transition-colors">
+              <Link href="https://www.ghanafa.org/category/news" className="text-white/80 hover:text-white transition-colors">
+              {/* <Link href="/public-news" className="text-white/80 hover:text-white transition-colors"> */}
                 News
               </Link>
             </nav>

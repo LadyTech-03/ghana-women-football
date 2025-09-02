@@ -152,7 +152,7 @@ const mockClubs: Club[] = [
 const testAccounts = {
   clubAdmin: {
     id: "1",
-    email: "admin@ampemdarkoaladies.com",
+    email: "admin@gfa.com",
     name: "Ampem Darkoa Admin",
     role: "club_admin" as const,
     clubId: "1",
