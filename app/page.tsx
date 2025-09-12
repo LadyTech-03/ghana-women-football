@@ -94,7 +94,7 @@ const featuredClubs = [
   {
     id: "6",
     name: "Dreamz Ladies F.C.",
-    // logo: "/clubs/thunder-queens.jpeg",
+    logo: "/clubs/thunder-queens.jpeg",
     zone: "Northern",
     region: "Ashanti",
     founded: 2020,
