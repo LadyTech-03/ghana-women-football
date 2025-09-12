@@ -8,7 +8,7 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Checkbox } from "@/components/ui/checkbox"
-import { Eye, EyeOff, Heart, ArrowLeft, Shield, Users, BookOpen } from "lucide-react"
+import { Eye, EyeOff, ArrowLeft, Shield, Users, BookOpen } from "lucide-react"
 import Link from "next/link"
 import { useAuthStore } from "@/lib/store"
 import Image from "next/image"
@@ -49,13 +49,7 @@ export default function PlayerLoginPage() {
               Back to Home
             </Link>
             <div className="flex items-center justify-center space-x-3 mb-6">
-              <Image 
-              src={'/gfa.png'}
-              width={42}
-              height={42}
-              alt="logo"
-
-              />
+              <Image src={"/gfa.png"} width={42} height={42} alt="logo" />
               <div className="text-left">
                 <h1 className="text-xl font-bold bg-gradient-to-r from-red-600 to-yellow-600 bg-clip-text text-transparent">
                   GHANA WOMEN'S FOOTBALL
@@ -68,9 +62,7 @@ export default function PlayerLoginPage() {
           <Card className="border-0 shadow-xl bg-card/50 backdrop-blur-sm">
             <CardHeader className="text-center pb-6">
               <CardTitle className="text-2xl">PLAYER SUPPORT</CardTitle>
-              <CardDescription className="text-base">
-                Sign in to your account.
-              </CardDescription>
+              <CardDescription className="text-base">Sign in to your account.</CardDescription>
             </CardHeader>
             <CardContent className="space-y-6">
               <form onSubmit={handleSubmit} className="space-y-5">
@@ -135,11 +127,7 @@ export default function PlayerLoginPage() {
                   </Link>
                 </div>
 
-                <Button
-                  type="submit"
-                  className="w-full h-11 font-medium"
-                  disabled={loading}
-                >
+                <Button type="submit" className="w-full h-11 font-medium" disabled={loading}>
                   {loading ? "Signing in..." : "Sign In Securely"}
                 </Button>
               </form>
@@ -163,19 +151,15 @@ export default function PlayerLoginPage() {
         </div>
       </div>
 
-      <div className="hidden lg:flex flex-1 bg-gradient-to-br from-red-50 via-yellow-50 to-green-50 dark:from-red-950/20 dark:via-yellow-950/20 dark:to-green-950/20 items-center justify-center p-8">
-        <div className="max-w-lg text-center space-y-8">
-          <div className="space-y-4">
-            <h2 className="text-3xl font-bold bg-gradient-to-r from-red-600 via-yellow-600 to-green-600 bg-clip-text text-transparent">
-              Your Wellbeing Matters
-            </h2>
-            <p className="text-lg text-muted-foreground">
-              Access confidential support, resources, and tools designed specifically for women footballers in Ghana.
-            </p>
-          </div>
+      <div className="hidden lg:flex flex-1 bg-gradient-to-br from-red-50 via-yellow-50 to-green-50 dark:from-red-950/20 dark:via-yellow-950/20 dark:to-green-950/20 items-center justify-center p-8 relative overflow-hidden">
+        {/* Added background image overlay */}
+        <div className="absolute inset-0 bg-[url('/ghana-women-football-player-celebrating-victory-in.jpg')] bg-cover bg-center opacity-60" />
+        <div className="absolute inset-0 bg-gradient-to-br from-red-900/10 via-yellow-900/10 to-green-900/10" />
+
+        <div className="max-w-lg text-center space-y-8 relative z-10">
 
           <div className="grid gap-6">
-            <div className="flex items-start space-x-4 p-6 bg-white/60 dark:bg-card/60 backdrop-blur-sm rounded-xl border border-red-200/50 dark:border-red-800/50">
+            <div className="flex items-start space-x-4 p-6 bg-white/80 dark:bg-card/80 backdrop-blur-sm rounded-xl border border-red-200/50 dark:border-red-800/50 shadow-lg">
               <div className="h-12 w-12 rounded-full bg-gradient-to-r from-red-500/20 to-red-600/20 flex items-center justify-center flex-shrink-0">
                 <Shield className="h-6 w-6 text-red-600" />
               </div>
@@ -187,7 +171,7 @@ export default function PlayerLoginPage() {
               </div>
             </div>
 
-            <div className="flex items-start space-x-4 p-6 bg-white/60 dark:bg-card/60 backdrop-blur-sm rounded-xl border border-yellow-200/50 dark:border-yellow-800/50">
+            <div className="flex items-start space-x-4 p-6 bg-white/80 dark:bg-card/80 backdrop-blur-sm rounded-xl border border-yellow-200/50 dark:border-yellow-800/50 shadow-lg">
               <div className="h-12 w-12 rounded-full bg-gradient-to-r from-yellow-500/20 to-yellow-600/20 flex items-center justify-center flex-shrink-0">
                 <BookOpen className="h-6 w-6 text-yellow-600" />
               </div>
@@ -199,7 +183,7 @@ export default function PlayerLoginPage() {
               </div>
             </div>
 
-            <div className="flex items-start space-x-4 p-6 bg-white/60 dark:bg-card/60 backdrop-blur-sm rounded-xl border border-green-200/50 dark:border-green-800/50">
+            <div className="flex items-start space-x-4 p-6 bg-white/80 dark:bg-card/80 backdrop-blur-sm rounded-xl border border-green-200/50 dark:border-green-800/50 shadow-lg">
               <div className="h-12 w-12 rounded-full bg-gradient-to-r from-green-500/20 to-green-600/20 flex items-center justify-center flex-shrink-0">
                 <Users className="h-6 w-6 text-green-600" />
               </div>
@@ -213,7 +197,7 @@ export default function PlayerLoginPage() {
           </div>
 
           <div className="pt-4">
-            <p className="text-sm text-muted-foreground italic">
+            <p className="text-sm text-white/80 italic font-medium">
               "Empowering Ghana's women footballers with the support they deserve."
             </p>
           </div>

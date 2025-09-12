@@ -2,13 +2,12 @@
 
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
-import { ArrowRight, Shield, Users, Heart, Calendar } from "lucide-react"
+import { ArrowRight, ScanFace, ArrowLeftRight, HandHelping   } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
 import { useEffect, useState } from "react"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import SeasonCountdown from "@/components/season-countdown"
-
 
 const heroBackgrounds = [
   {
@@ -211,8 +210,15 @@ export default function HomePage() {
               <Link href="/public-tables" className="text-white/80 hover:text-white transition-colors">
                 Tables
               </Link>
-              {/* <Link href="/public-news" className="text-white/80 hover:text-white transition-colors"> */}
-              <a href="https://ghanafa.org/category/womens-football/" target="_blank" rel="noopener noreferrer" className="text-white/80 hover:text-white transition-colors">
+              <Link href="/fixtures" className="text-white/80 hover:text-white transition-colors">
+                Fixtures
+              </Link>
+              <a
+                href="https://ghanafa.org/category/womens-football/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-white/80 hover:text-white transition-colors"
+              >
                 News
               </a>
             </nav>
@@ -259,57 +265,101 @@ export default function HomePage() {
           </div>
 
           {/* Main Action Cards */}
-          <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto mb-20">
+          <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto mb-20">
             {/* Transfer Management Card */}
             <Card className="group hover:shadow-2xl transition-all duration-500 border-2 hover:border-primary/40 bg-black/40 backdrop-blur-md border-white/10 hover:scale-105">
-              <CardContent className="p-10">
-                <div className="flex items-center space-x-4 mb-6">
-                  <div className="h-16 w-16 rounded-xl bg-primary/20 backdrop-blur-sm flex items-center justify-center group-hover:bg-primary/30 transition-all duration-300 group-hover:scale-110">
-                    <Users className="h-8 w-8 text-primary" />
-                  </div>
+              <CardContent className="p-8">
+                <div className="flex items-center space-x-3 mb-4">
+                  <div className="relative">
+                      <div className="h-16 w-16 rounded-2xl bg-gradient-to-br from-yellow-400/30 to-red-500/30 backdrop-blur-sm flex items-center justify-center group-hover:scale-110 transition-transform duration-500 border border-yellow-400/20">
+                        <ArrowLeftRight className="h-8 w-8 text-yellow-300" />
+                      </div>
+                      <div className="absolute -top-1 -right-1 h-6 w-6 bg-yellow-400 rounded-full flex items-center justify-center">
+                        <span className="text-xs font-bold text-red-900">1</span>
+                      </div>
+                    </div>
                   <div>
-                    <h3 className="text-2xl font-bold text-white">Transfer Management</h3>
-                    <p className="text-white/70">For Clubs & Officials</p>
+                    <h3 className="text-xl font-bold text-white">Transfer Management</h3>
+                    <p className="text-white/70 text-sm">For Clubs & Officials</p>
                   </div>
                 </div>
-                <p className="text-white/80 mb-8 text-lg leading-relaxed">
+                <p className="text-white/80 mb-6 text-sm leading-relaxed">
                   Manage player transfers, review documentation, and streamline the approval process for Ghana's women's
-                  football ecosystem with advanced digital workflows.
+                  football ecosystem.
                 </p>
-                <Button asChild size="lg" className="w-full group text-lg py-6 bg-primary hover:bg-primary/90">
+                <Button asChild size="sm" className="w-full group text-sm py-4 bg-primary hover:bg-primary/90">
                   <Link href="/login">
                     Transfer System
-                    <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-2 transition-transform duration-300" />
+                    <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-2 transition-transform duration-300" />
                   </Link>
                 </Button>
               </CardContent>
-            </Card>            
+            </Card>
 
             {/* Player Support Card */}
             <Card className="group hover:shadow-2xl transition-all duration-500 border-2 hover:border-accent/40 bg-black/40 backdrop-blur-md border-white/10 hover:scale-105">
-              <CardContent className="p-10">
-                <div className="flex items-center space-x-4 mb-6">
-                  <div className="h-16 w-16 rounded-xl bg-accent/20 backdrop-blur-sm flex items-center justify-center group-hover:bg-accent/30 transition-all duration-300 group-hover:scale-110">
-                    <Heart className="h-8 w-8 text-accent" />
-                  </div>
+              <CardContent className="p-8">
+                <div className="flex items-center space-x-3 mb-4">
+                  <div className="relative">
+                      <div className="h-16 w-16 rounded-2xl bg-gradient-to-br from-yellow-400/30 to-emerald-500/30 backdrop-blur-sm flex items-center justify-center group-hover:scale-110 transition-transform duration-500 border border-yellow-400/20">
+                        <HandHelping   className="h-8 w-8 text-yellow-300" />
+                      </div>
+                      <div className="absolute -top-1 -right-1 h-6 w-6 bg-yellow-400 rounded-full flex items-center justify-center">
+                        <span className="text-xs font-bold text-green-900">2</span>
+                      </div>
+                    </div>
                   <div>
-                    <h3 className="text-2xl font-bold text-white">Player Support</h3>
-                    <p className="text-white/70">Menstrual Health & Wellbeing</p>
+                    <h3 className="text-xl font-bold text-white">Player Support</h3>
+                    <p className="text-white/70 text-sm">Menstrual Health & Wellbeing</p>
                   </div>
                 </div>
-                <p className="text-white/80 mb-8 text-lg leading-relaxed">
+                <p className="text-white/80 mb-6 text-sm leading-relaxed">
                   Confidential support system for menstrual health resources, medical assistance, and comprehensive
                   wellbeing support for female players.
                 </p>
                 <Button
                   asChild
                   variant="secondary"
-                  size="lg"
-                  className="w-full group text-lg py-6 bg-accent hover:bg-accent/90 text-accent-foreground"
+                  size="sm"
+                  className="w-full group text-sm py-4 bg-accent hover:bg-accent/90 text-accent-foreground"
                 >
                   <Link href="/player-login">
-                    Menstrual Health & Player Support
-                    <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-2 transition-transform duration-300" />
+                    Player Support
+                    <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-2 transition-transform duration-300" />
+                  </Link>
+                </Button>
+              </CardContent>
+            </Card>
+
+            {/* Registration Portal Card */}
+            <Card className="group hover:shadow-2xl transition-all duration-500 border-2 hover:border-chart-3/40 bg-black/40 backdrop-blur-md border-white/10 hover:scale-105">
+              <CardContent className="p-8">
+                <div className="flex items-center space-x-3 mb-4">
+                  <div className="relative">
+                      <div className="h-16 w-16 rounded-2xl bg-gradient-to-br from-red-400/30 to-yellow-500/30 backdrop-blur-sm flex items-center justify-center group-hover:scale-110 transition-transform duration-500 border border-red-400/20">
+                        <ScanFace className="h-8 w-8 text-red-300" />
+                      </div>
+                      <div className="absolute -top-1 -right-1 h-6 w-6 bg-red-400 rounded-full flex items-center justify-center">
+                        <span className="text-xs font-bold text-yellow-900">3</span>
+                      </div>
+                    </div>
+                  <div>
+                    <h3 className="text-xl font-bold text-white">Registration Portal</h3>
+                    <p className="text-white/70 text-sm">Clubs, Agents & Scouts</p>
+                  </div>
+                </div>
+                <p className="text-white/80 mb-6 text-sm leading-relaxed">
+                  Register as a club official, agent, or scout to access the Ghana women's football ecosystem and manage
+                  your profile.
+                </p>
+                <Button
+                  asChild
+                  size="sm"
+                  className="w-full group text-sm py-4 mt-6 bg-chart-3 hover:bg-chart-3/90 text-white"
+                >
+                  <Link href="/register">
+                    Register Now
+                    <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-2 transition-transform duration-300" />
                   </Link>
                 </Button>
               </CardContent>
@@ -333,12 +383,11 @@ export default function HomePage() {
                       <div className="mx-auto mb-4 rounded-full flex items-center justify-center transition-all duration-300">
                         <div className="rounded-full flex items-center justify-center">
                           <Avatar className="size-34">
-                            <AvatarImage src={club.logo} alt={`${club.name} logo`} />
+                            <AvatarImage src={club.logo || "/placeholder.svg"} alt={`${club.name} logo`} />
                             <AvatarFallback>{club.name.charAt(0)}</AvatarFallback>
                           </Avatar>
                         </div>
                       </div>
-                      
                     </CardContent>
                   </Card>
                 </Link>
@@ -389,7 +438,6 @@ export default function HomePage() {
               </Button>
             </div>
           </section>
-
         </main>
 
         {/* Footer */}
