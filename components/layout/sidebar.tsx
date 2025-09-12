@@ -119,8 +119,8 @@ export function Sidebar() {
       <nav className="flex flex-col space-y-2 p-2 mt-4">
         {navigation.map((item: any) => {
           if (item.submenu) {
-            // const isExpanded = expandedMenus.includes(item.name)
-            const isExpanded = true
+            const isExpanded = expandedMenus.includes(item.name)
+            // const isExpanded = true
             const hasActiveSubmenu = isSubmenuActive(item.submenu)
 
             return (
