@@ -28,7 +28,7 @@ export default function RegisterLoginPage() {
             <Image src="/gfa.png" alt="GFA Logo" width={48} height={48} />
             <div>
               <h1 className="font-bold text-lg text-white">Ghana Football Association</h1>
-              <p className="text-xs text-white/70">Registration Portal - Sign In</p>
+              <p className="text-xs text-white/70">Registration Nexus - Sign In</p>
             </div>
           </div>
           <Button variant="ghost" asChild className="text-white hover:bg-white/10">
@@ -45,13 +45,8 @@ export default function RegisterLoginPage() {
         <div className="max-w-md mx-auto">
           {/* Page Header */}
           <div className="text-center mb-8">
-            <div className="flex justify-center mb-4">
-              <div className="p-3 bg-primary/20 rounded-full">
-                <LogIn className="h-8 w-8 text-primary" />
-              </div>
-            </div>
             <h1 className="text-3xl md:text-4xl font-bold text-white mb-2">Welcome Back</h1>
-            <p className="text-white/80">Sign in to your registration portal account</p>
+            <p className="text-white/80">Sign in to your account account</p>
           </div>
 
           {/* Login Form */}
