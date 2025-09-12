@@ -73,7 +73,7 @@ export default function RegisterPage() {
             <Image src="/gfa.png" alt="GFA Logo" width={48} height={48} />
             <div>
               <h1 className="font-bold text-lg text-white">Ghana Football Association</h1>
-              <p className="text-xs text-white/70">Registration Portal</p>
+              <p className="text-xs text-white/70">Registration Nexus</p>
             </div>
           </div>
           <Button variant="ghost" asChild className="text-white hover:bg-white/10">
@@ -90,7 +90,7 @@ export default function RegisterPage() {
         <div className="max-w-4xl mx-auto">
           {/* Page Header */}
           <div className="text-center mb-12">
-            <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">Registration Portal</h1>
+            <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">Registration Nexus</h1>
             <p className="text-xl text-white/80 max-w-2xl mx-auto mb-6">
               Join the Ghana Women's Football ecosystem as a Club, Agent, or Scout
             </p>

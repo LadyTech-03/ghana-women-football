@@ -344,7 +344,7 @@ export default function HomePage() {
                       </div>
                     </div>
                   <div>
-                    <h3 className="text-xl font-bold text-white">Registration Portal</h3>
+                    <h3 className="text-xl font-bold text-white">Registration Nexus</h3>
                     <p className="text-white/70 text-sm">Clubs, Agents & Scouts</p>
                   </div>
                 </div>
