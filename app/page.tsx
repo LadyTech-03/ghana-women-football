@@ -338,7 +338,7 @@ export default function HomePage() {
                 <Button
                   asChild
                   size="lg"
-                  className="w-full group/btn mt-auto bg-accent/90 hover:bg-accent text-background font-medium tracking-wide transition-all duration-300"
+                  className="w-full group/btn mt-auto bg-secondary/50 hover:bg-accent text-background font-medium tracking-wide transition-all duration-300"
                 >
                   <Link href="/player-login" className="flex items-center justify-center py-6">
                     Player Support

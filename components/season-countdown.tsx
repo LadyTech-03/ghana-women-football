@@ -19,7 +19,7 @@ export default function SeasonCountdown() {
 
   useEffect(() => {
     // Set the date for September 5, 2025
-    const seasonStart = new Date('2025-09-16T00:00:00')
+    const seasonStart = new Date('2025-09-23T00:00:00')
 
     const timer = setInterval(() => {
       const now = new Date()
