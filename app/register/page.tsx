@@ -62,19 +62,15 @@ export default function RegisterPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
+    <div className="min-h-screen bg-primary">
       {/* Background Pattern */}
       <div className="absolute inset-0 bg-[url('/placeholder-kdrcm.png')] opacity-5" />
 
       {/* Header */}
-      <header className="relative z-10 border-b border-white/10 bg-black/20 backdrop-blur-md">
+      <header className="relative z-10 bg-primary/60 backdrop-blur-md">
         <div className="container mx-auto px-4 py-4 flex items-center justify-between">
           <div className="flex items-center space-x-3">
-            <Image src="/gfa.png" alt="GFA Logo" width={48} height={48} />
-            <div>
-              <h1 className="font-bold text-lg text-white">Ghana Football Association</h1>
-              <p className="text-xs text-white/70">Registration Nexus</p>
-            </div>
+            <Image src="/gfa.png" alt="GFA Logo" width={150} height={150} />
           </div>
           <Button variant="ghost" asChild className="text-white hover:bg-white/10">
             <Link href="/">
@@ -90,12 +86,12 @@ export default function RegisterPage() {
         <div className="max-w-4xl mx-auto">
           {/* Page Header */}
           <div className="text-center mb-12">
-            <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">Registration Nexus</h1>
-            <p className="text-xl text-white/80 max-w-2xl mx-auto mb-6">
-              Join the Ghana Women's Football ecosystem as a Club, Agent, or Scout
+            <h1 className="text-4xl md:text-5xl font-bold text-background mb-4">Registration Nexus</h1>
+            <p className="text-xl text-background max-w-2xl mx-auto mb-6">
+              Join the ShePlays Global ecosystem as a Club, Agent, or Scout
             </p>
             <div className="flex justify-center">
-              <Button variant="outline" asChild className="border-white/30 text-white hover:bg-white/10 bg-transparent">
+              <Button variant="outline" asChild className="border-white/30 text-background hover:bg-white/10 bg-transparent">
                 <Link href="/register-login">Already have an account? Sign In</Link>
               </Button>
             </div>
@@ -105,34 +101,34 @@ export default function RegisterPage() {
             <CardContent className="p-6">
               <div className="flex items-start space-x-4">
                 <div className="flex-shrink-0">
-                  <DollarSign className="h-6 w-6 text-yellow-400" />
+                  <DollarSign className="h-6 w-6 text-background" />
                 </div>
                 <div>
-                  <h3 className="text-lg font-semibold text-white mb-2">Registration Fees</h3>
-                  <p className="text-white/80 mb-4">
+                  <h3 className="text-lg font-semibold text-background mb-2">Registration Fees</h3>
+                  <p className="text-background/80 mb-4">
                     A registration fee is required to complete your application.
                   </p>
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                     <div className="bg-white/10 rounded-lg p-3 border border-white/20">
                       <div className="flex items-center space-x-2">
-                        <Building2 className="h-4 w-4 text-red-400" />
+                        <Building2 className="h-4 w-4 text-background" />
                         <span className="text-sm font-medium text-white">Club/GFA Official</span>
                       </div>
-                      <p className="text-lg font-bold text-yellow-400 mt-1">GHS 5,000</p>
+                      <p className="text-lg font-bold text-secondary/80 mt-1">GHS 5,000</p>
                     </div>
                     <div className="bg-white/10 rounded-lg p-3 border border-white/20">
                       <div className="flex items-center space-x-2">
-                        <UserCheck className="h-4 w-4 text-yellow-400" />
+                        <UserCheck className="h-4 w-4 text-background" />
                         <span className="text-sm font-medium text-white">Agent</span>
                       </div>
-                      <p className="text-lg font-bold text-yellow-400 mt-1">GHS 3,000</p>
+                      <p className="text-lg font-bold text-secondary/80 mt-1">GHS 3,000</p>
                     </div>
                     <div className="bg-white/10 rounded-lg p-3 border border-white/20">
                       <div className="flex items-center space-x-2">
-                        <Search className="h-4 w-4 text-green-400" />
+                        <Search className="h-4 w-4 text-background" />
                         <span className="text-sm font-medium text-white">Scout</span>
                       </div>
-                      <p className="text-lg font-bold text-yellow-400 mt-1">GHS 2,000</p>
+                      <p className="text-lg font-bold text-secondary/80 mt-1">GHS 2,000</p>
                     </div>
                   </div>
                 </div>
@@ -150,21 +146,21 @@ export default function RegisterPage() {
                 <TabsList className="grid w-full grid-cols-3 mb-8 bg-white/5 border border-white/10">
                   <TabsTrigger
                     value="club"
-                    className="data-[state=active]:bg-primary data-[state=active]:text-white text-white/70 hover:text-white transition-colors"
+                    className="data-[state=active]:bg-primary data-[state=active]:text-white text-background hover:text-white transition-colors"
                   >
                     <Building2 className="mr-2 h-4 w-4" />
                     Club / GFA Official
                   </TabsTrigger>
                   <TabsTrigger
                     value="agent"
-                    className="data-[state=active]:bg-primary data-[state=active]:text-white text-white/70 hover:text-white transition-colors"
+                    className="data-[state=active]:bg-primary data-[state=active]:text-white text-background hover:text-white transition-colors"
                   >
                     <UserCheck className="mr-2 h-4 w-4" />
                     Agent
                   </TabsTrigger>
                   <TabsTrigger
                     value="scout"
-                    className="data-[state=active]:bg-primary data-[state=active]:text-white text-white/70 hover:text-white transition-colors"
+                    className="data-[state=active]:bg-primary data-[state=active]:text-white text-background hover:text-white transition-colors"
                   >
                     <Search className="mr-2 h-4 w-4" />
                     Scout
@@ -178,7 +174,7 @@ export default function RegisterPage() {
                     <div className="space-y-6">
                       <div>
                         <h3 className="text-xl font-semibold text-white mb-4 flex items-center">
-                          <Building2 className="mr-2 h-5 w-5 text-primary" />
+                          <Building2 className="mr-2 h-5 w-5 text-background" />
                           Club Information
                         </h3>
                         <div className="space-y-4">
@@ -280,7 +276,7 @@ export default function RegisterPage() {
                                 type="button"
                                 variant="ghost"
                                 size="sm"
-                                className="absolute right-0 top-0 h-full px-3 text-white/70 hover:text-white hover:bg-transparent"
+                                className="absolute right-0 top-0 h-full px-3 text-background hover:text-white hover:bg-transparent"
                                 onClick={() => setShowPassword(!showPassword)}
                               >
                                 {showPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
@@ -303,7 +299,7 @@ export default function RegisterPage() {
                                 type="button"
                                 variant="ghost"
                                 size="sm"
-                                className="absolute right-0 top-0 h-full px-3 text-white/70 hover:text-white hover:bg-transparent"
+                                className="absolute right-0 top-0 h-full px-3 text-background hover:text-white hover:bg-transparent"
                                 onClick={() => setShowConfirmPassword(!showConfirmPassword)}
                               >
                                 {showConfirmPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
@@ -432,7 +428,7 @@ export default function RegisterPage() {
                         <div className="mt-2 flex justify-center px-6 pt-5 pb-6 border-2 border-white/20 border-dashed rounded-lg hover:border-primary/50 transition-colors">
                           <div className="space-y-1 text-center">
                             <Upload className="mx-auto h-12 w-12 text-white/40" />
-                            <div className="flex text-sm text-white/70">
+                            <div className="flex text-sm text-background">
                               <label
                                 htmlFor="clubCert"
                                 className="relative cursor-pointer rounded-md font-medium text-primary hover:text-primary/80"
@@ -460,7 +456,7 @@ export default function RegisterPage() {
                         <div className="mt-2 flex justify-center px-6 pt-5 pb-6 border-2 border-white/20 border-dashed rounded-lg hover:border-primary/50 transition-colors">
                           <div className="space-y-1 text-center">
                             <Upload className="mx-auto h-12 w-12 text-white/40" />
-                            <div className="flex text-sm text-white/70">
+                            <div className="flex text-sm text-background">
                               <label
                                 htmlFor="gfaId"
                                 className="relative cursor-pointer rounded-md font-medium text-primary hover:text-primary/80"
@@ -505,7 +501,7 @@ export default function RegisterPage() {
                     {/* Left Column - Personal & Contact Information */}
                     <div className="space-y-6">
                       <div>
-                        <h3 className="text-xl font-semibold text-white mb-4 flex items-center">
+                        <h3 className="text-xl font-semibold text-background mb-4 flex items-center">
                           <UserCheck className="mr-2 h-5 w-5 text-primary" />
                           Personal Information
                         </h3>
@@ -638,7 +634,7 @@ export default function RegisterPage() {
                                 type="button"
                                 variant="ghost"
                                 size="sm"
-                                className="absolute right-0 top-0 h-full px-3 text-white/70 hover:text-white hover:bg-transparent"
+                                className="absolute right-0 top-0 h-full px-3 text-background hover:text-white hover:bg-transparent"
                                 onClick={() => setShowPassword(!showPassword)}
                               >
                                 {showPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
@@ -661,7 +657,7 @@ export default function RegisterPage() {
                                 type="button"
                                 variant="ghost"
                                 size="sm"
-                                className="absolute right-0 top-0 h-full px-3 text-white/70 hover:text-white hover:bg-transparent"
+                                className="absolute right-0 top-0 h-full px-3 text-background hover:text-white hover:bg-transparent"
                                 onClick={() => setShowConfirmPassword(!showConfirmPassword)}
                               >
                                 {showConfirmPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
@@ -733,7 +729,7 @@ export default function RegisterPage() {
                             <div className="mt-2 flex justify-center px-6 pt-5 pb-6 border-2 border-white/20 border-dashed rounded-lg hover:border-primary/50 transition-colors">
                               <div className="space-y-1 text-center">
                                 <Upload className="mx-auto h-12 w-12 text-white/40" />
-                                <div className="flex text-sm text-white/70">
+                                <div className="flex text-sm text-background">
                                   <label
                                     htmlFor="agentLicenseCopy"
                                     className="relative cursor-pointer rounded-md font-medium text-primary hover:text-primary/80"
@@ -761,7 +757,7 @@ export default function RegisterPage() {
                             <div className="mt-2 flex justify-center px-6 pt-5 pb-6 border-2 border-white/20 border-dashed rounded-lg hover:border-primary/50 transition-colors">
                               <div className="space-y-1 text-center">
                                 <Upload className="mx-auto h-12 w-12 text-white/40" />
-                                <div className="flex text-sm text-white/70">
+                                <div className="flex text-sm text-background">
                                   <label
                                     htmlFor="agentId"
                                     className="relative cursor-pointer rounded-md font-medium text-primary hover:text-primary/80"
@@ -808,7 +804,7 @@ export default function RegisterPage() {
                     {/* Left Column - Personal & Contact Information */}
                     <div className="space-y-6">
                       <div>
-                        <h3 className="text-xl font-semibold text-white mb-4 flex items-center">
+                        <h3 className="text-xl font-semibold text-background mb-4 flex items-center">
                           <Search className="mr-2 h-5 w-5 text-primary" />
                           Personal Information
                         </h3>
@@ -941,7 +937,7 @@ export default function RegisterPage() {
                                 type="button"
                                 variant="ghost"
                                 size="sm"
-                                className="absolute right-0 top-0 h-full px-3 text-white/70 hover:text-white hover:bg-transparent"
+                                className="absolute right-0 top-0 h-full px-3 text-background hover:text-white hover:bg-transparent"
                                 onClick={() => setShowPassword(!showPassword)}
                               >
                                 {showPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
@@ -964,7 +960,7 @@ export default function RegisterPage() {
                                 type="button"
                                 variant="ghost"
                                 size="sm"
-                                className="absolute right-0 top-0 h-full px-3 text-white/70 hover:text-white hover:bg-transparent"
+                                className="absolute right-0 top-0 h-full px-3 text-background hover:text-white hover:bg-transparent"
                                 onClick={() => setShowConfirmPassword(!showConfirmPassword)}
                               >
                                 {showConfirmPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
@@ -1047,7 +1043,7 @@ export default function RegisterPage() {
                             <div className="mt-2 flex justify-center px-6 pt-5 pb-6 border-2 border-white/20 border-dashed rounded-lg hover:border-primary/50 transition-colors">
                               <div className="space-y-1 text-center">
                                 <Upload className="mx-auto h-12 w-12 text-white/40" />
-                                <div className="flex text-sm text-white/70">
+                                <div className="flex text-sm text-background">
                                   <label
                                     htmlFor="scoutCv"
                                     className="relative cursor-pointer rounded-md font-medium text-primary hover:text-primary/80"
@@ -1075,7 +1071,7 @@ export default function RegisterPage() {
                             <div className="mt-2 flex justify-center px-6 pt-5 pb-6 border-2 border-white/20 border-dashed rounded-lg hover:border-primary/50 transition-colors">
                               <div className="space-y-1 text-center">
                                 <Upload className="mx-auto h-12 w-12 text-white/40" />
-                                <div className="flex text-sm text-white/70">
+                                <div className="flex text-sm text-background">
                                   <label
                                     htmlFor="scoutId"
                                     className="relative cursor-pointer rounded-md font-medium text-primary hover:text-primary/80"
@@ -1121,7 +1117,7 @@ export default function RegisterPage() {
 
           {/* Additional Info */}
           <div className="text-center mt-8">
-            <p className="text-white/70">
+            <p className="text-background">
               Already have an account?{" "}
               <Link href="/register-login" className="text-primary hover:text-primary/80 font-medium">
                 Sign in here
@@ -1132,13 +1128,13 @@ export default function RegisterPage() {
       </main>
 
       <Dialog open={showPaymentModal} onOpenChange={setShowPaymentModal}>
-        <DialogContent className="bg-slate-900/95 backdrop-blur-md border-white/20 text-white max-w-md">
+        <DialogContent className="bg-transparent backdrop-blur-lg border-white/20 text-white max-w-md">
           <DialogHeader>
             <DialogTitle className="flex items-center space-x-2 text-xl">
-              <CreditCard className="h-6 w-6 text-yellow-400" />
+              <CreditCard className="h-6 w-6 text-secondary/80" />
               <span>Confirm Payment</span>
             </DialogTitle>
-            <DialogDescription className="text-white/70">
+            <DialogDescription className="text-background">
               Complete your registration by confirming the payment details below.
             </DialogDescription>
           </DialogHeader>
@@ -1146,25 +1142,25 @@ export default function RegisterPage() {
           <div className="py-6">
             <div className="bg-white/10 rounded-lg p-4 border border-white/20 mb-6">
               <div className="flex justify-between items-center mb-2">
-                <span className="text-white/80">Registration Type:</span>
+                <span className="text-background">Registration Type:</span>
                 <span className="font-semibold text-white capitalize">
                   {registrationFees[registrationType as keyof typeof registrationFees]?.description}
                 </span>
               </div>
               <div className="flex justify-between items-center mb-2">
-                <span className="text-white/80">Amount:</span>
-                <span className="text-2xl font-bold text-yellow-400">
+                <span className="text-background">Amount:</span>
+                <span className="text-2xl font-bold text-secondary/80">
                   {registrationFees[registrationType as keyof typeof registrationFees]?.currency}{" "}
                   {registrationFees[registrationType as keyof typeof registrationFees]?.amount}
                 </span>
               </div>
               <div className="flex justify-between items-center">
-                <span className="text-white/80">Processing Fee:</span>
+                <span className="text-background">Processing Fee:</span>
                 <span className="text-white">Excluded</span>
               </div>
             </div>
 
-            <div className="bg-blue-500/10 border border-blue-500/20 rounded-lg p-4">
+            <div className="bg-white/10 rounded-lg p-4 border border-white/20">
               <div className="flex items-start space-x-3">
                 <AlertCircle className="h-5 w-5 text-blue-400 flex-shrink-0 mt-0.5" />
                 <div>
@@ -1182,11 +1178,11 @@ export default function RegisterPage() {
             <Button
               variant="outline"
               onClick={() => setShowPaymentModal(false)}
-              className="border-white/30 text-white bg-white/10"
+              className="border-white/30 text-white bg-white/10 cursor-pointer hover:bg-background/40"
             >
               Cancel
             </Button>
-            <Button onClick={handlePaymentConfirm} className="bg-green-600 hover:bg-green-700 text-white">
+            <Button onClick={handlePaymentConfirm} className="bg-secondary/80 hover:bg-secondary cursor-pointer text-white">
               <CheckCircle className="mr-2 h-4 w-4" />
               Confirm Payment
             </Button>
@@ -1195,9 +1191,9 @@ export default function RegisterPage() {
       </Dialog>
 
       <Dialog open={showSuccessModal} onOpenChange={setShowSuccessModal}>
-        <DialogContent className="bg-slate-900/95 backdrop-blur-md border-green-500/20 text-white max-w-md">
+        <DialogContent className="bg-transparent backdrop-blur-lg text-white max-w-md">
           <DialogHeader>
-            <DialogTitle className="flex items-center space-x-2 text-xl text-green-400">
+            <DialogTitle className="flex items-center space-x-2 text-xl text-secondary/80">
               <CheckCircle className="h-6 w-6" />
               <span>Registration Successful!</span>
             </DialogTitle>
@@ -1205,21 +1201,21 @@ export default function RegisterPage() {
 
           <div className="py-6">
             <div className="text-center mb-6">
-              <div className="w-16 h-16 bg-green-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                <CheckCircle className="h-8 w-8 text-green-400" />
+              <div className="w-16 h-16 bg-secondary/40 rounded-full flex items-center justify-center mx-auto mb-4">
+                <CheckCircle className="h-8 w-8 text-secondary/80" />
               </div>
-              <h3 className="text-lg font-semibold text-white mb-2">Payment Confirmed</h3>
-              <p className="text-white/80 mb-4">
+              <h3 className="text-lg font-semibold text-background mb-2">Payment Confirmed</h3>
+              <p className="text-background mb-4">
                 Your registration has been submitted successfully and payment has been processed.
               </p>
             </div>
 
-            <div className="bg-yellow-500/10 border border-yellow-500/20 rounded-lg p-4 mb-4">
+            <div className="bg-white/10 border rounded-lg p-4 mb-4">
               <div className="flex items-start space-x-3">
-                <AlertCircle className="h-5 w-5 text-yellow-400 flex-shrink-0 mt-0.5" />
+                <AlertCircle className="h-5 w-5 text-background flex-shrink-0 mt-0.5" />
                 <div>
-                  <p className="text-sm text-yellow-200 font-medium mb-1">Under Review</p>
-                  <p className="text-xs text-yellow-200/80">
+                  <p className="text-sm text-background font-medium mb-1">Under Review</p>
+                  <p className="text-xs text-background/80">
                     Your registration is now under review by the Ghana Football Association. You will receive an email
                     notification once your application has been approved.
                   </p>
@@ -1229,7 +1225,7 @@ export default function RegisterPage() {
 
             <div className="bg-white/10 rounded-lg p-4 border border-white/20">
               <h4 className="font-medium text-white mb-2">What's Next?</h4>
-              <ul className="text-sm text-white/80 space-y-1">
+              <ul className="text-sm text-background space-y-1">
                 <li>• GFA will review your application within 3-5 business days</li>
                 <li>• You'll receive email updates on your application status</li>
                 <li>• Once approved, you can access your dashboard</li>

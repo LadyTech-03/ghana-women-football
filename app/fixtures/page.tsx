@@ -452,7 +452,7 @@ export default function FixturesPage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-primary/5 via-background to-accent/5">
       {/* Enhanced Header */}
-      <div className="relative bg-gradient-to-r from-primary via-primary/90 to-accent text-white py-20 overflow-hidden">
+      <div className="relative bg-gradient-to-r from-primary via-primary/90 to-accent text-white py-10 overflow-hidden">
         <div className="absolute inset-0 bg-[url('/placeholder.svg?height=400&width=1200&text=Football+Pattern')] opacity-10" />
         <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
 
@@ -473,9 +473,6 @@ export default function FixturesPage() {
           </div>
 
           <div className="flex items-start gap-6 mb-6">
-            <div className="h-20 w-20 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-sm border border-white/30">
-              <Calendar className="h-10 w-10 text-white" />
-            </div>
             <div className="flex-1">
               <h1 className="text-6xl font-bold mb-3 bg-gradient-to-r from-white to-white/80 bg-clip-text text-transparent">
                 Fixtures & Results
@@ -629,7 +626,7 @@ export default function FixturesPage() {
                     .filter((matchday) => selectedMatchday === null || matchday === selectedMatchday)
                     .map((matchday) => (
                       <Card key={matchday} className="overflow-hidden">
-                        <CardHeader className="bg-gradient-to-r from-primary/5 to-primary/10 border-b">
+                        <CardHeader className="border-b">
                           <CardTitle className="flex items-center gap-4">
                             <div className="h-12 w-12 bg-primary/20 rounded-full flex items-center justify-center border-2 border-primary/30">
                               <span className="text-lg font-bold text-primary">{matchday}</span>

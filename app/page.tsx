@@ -8,22 +8,23 @@ import Link from "next/link"
 import { useEffect, useState } from "react"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import SeasonCountdown from "@/components/season-countdown"
+import { TypewriterEffectSmooth } from "@/components/ui/typewriter-effect";
 
 const heroBackgrounds = [
   {
     image: "/ghana-women-football-team-celebrating.png",
     title: "Celebrating Excellence",
-    subtitle: "Ghana's women footballers achieving greatness",
+    // subtitle: "Ghana's women footballers achieving greatness",
   },
   {
     image: "/female-footballer-captain.png",
     title: "Leadership on the Field",
-    subtitle: "Empowering the next generation of leaders",
+    // subtitle: "Empowering the next generation of leaders",
   },
   {
     image: "/female-footballer-striker.png",
     title: "Skill & Determination",
-    subtitle: "Showcasing world-class talent",
+    // subtitle: "Showcasing world-class talent",
   },
 ]
 
@@ -160,6 +161,17 @@ const latestNews = [
 export default function HomePage() {
   const [currentBg, setCurrentBg] = useState(0)
 
+  const words = [
+    {
+      text: "ShePlays",
+      className: "text-6xl md:text-8xl font-bold text-background text-balance mb-4",
+    },
+    {
+      text: "Global",
+      className: "text-6xl md:text-8xl font-bold text-secondary text-balance mb-4",
+    },
+  ];
+
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentBg((prev) => (prev + 1) % heroBackgrounds.length)
@@ -191,44 +203,44 @@ export default function HomePage() {
       {/* Content */}
       <div className="relative z-20">
         {/* Header */}
-        <header className="border-b border-white/10 bg-black/20 backdrop-blur-md supports-[backdrop-filter]:bg-black/10">
+        <header className="bg-primary/60 backdrop-blur-md">
           <div className="container mx-auto px-4 py-4 flex items-center justify-between">
             <div className="flex items-center space-x-3">
-              <Image src="/gfa.png" alt="GFA Logo" width={64} height={64} />
-              <div>
-                <h1 className="font-bold text-lg text-white">Ghana Football Association</h1>
-                <p className="text-xs text-white/70">Women's Football Management</p>
-              </div>
+              <Image src="/gfa.png" alt="GFA Logo" width={150} height={150} />
+              {/* <div>
+                <h1 className="font-bold text-lg text-background">Ghana Football Association</h1>
+                <p className="text-xs text-background/70">Women's Football Management</p>
+              </div> */}
             </div>
-            <nav className="hidden md:flex items-center space-x-6">
-              <Link href="/public-players" className="text-white/80 hover:text-white transition-colors">
+            <nav className="text-sm sm:text-md hidden md:flex items-center space-x-6">
+              <Link href="/public-players" className="text-background hover:text-background transition-colors">
                 Players
               </Link>
-              <Link href="/public-clubs" className="text-white/80 hover:text-white transition-colors">
+              <Link href="/public-clubs" className="text-background hover:text-background transition-colors">
                 Clubs
               </Link>
-              <Link href="/public-tables" className="text-white/80 hover:text-white transition-colors">
+              <Link href="/public-tables" className="text-background hover:text-background transition-colors">
                 Tables
               </Link>
-              <Link href="/fixtures" className="text-white/80 hover:text-white transition-colors">
+              <Link href="/fixtures" className="text-background hover:text-background transition-colors">
                 Fixtures
               </Link>
               <a
                 href="https://ghanafa.org/category/womens-football/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-white/80 hover:text-white transition-colors"
+                className="text-background hover:text-background transition-colors"
               >
                 News
               </a>
             </nav>
             <div className="flex items-center space-x-2">
-              <Button variant="ghost" asChild className="text-white hover:bg-white/10">
+              <Button variant="ghost" asChild className="text-background hover:bg-white/10">
                 <Link className="text-lg" href="/login">
                   Make Transfer
                 </Link>
               </Button>
-              <Button variant="outline" asChild className="border-white/20 text-white hover:bg-white/10 bg-transparent">
+              <Button variant="outline" asChild className="border-white/20 text-background hover:bg-white/10 bg-transparent">
                 <Link className="text-lg" href="/player-login">
                   Player Support
                 </Link>
@@ -241,14 +253,16 @@ export default function HomePage() {
         <main className="container mx-auto px-4 py-20">
           <div className="text-center mb-20">
             <div className="mb-6">
-              <h1 className="text-5xl md:text-7xl font-bold text-white text-balance mb-4 leading-tight">
-                GHANA WOMENS FOOTBALL
-                <span className="block bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-                  Transfer & Support
+                  <TypewriterEffectSmooth className="text-center" words={words} />
+              <h1 className="text-6xl md:text-8xl font-bold text-background text-balance mb-4 mx-auto">
+                {/* <span className="leading-none">ShePlays Global</span> */}
+
+                <span className="block bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent text-xl md:text-2xl uppercase tracking-widest">
+                  Transfer Her As A Pro
                 </span>
               </h1>
-              <div className="text-lg text-white/80 font-medium mb-2">{heroBackgrounds[currentBg].title}</div>
-              <div className="text-sm text-white/60">{heroBackgrounds[currentBg].subtitle}</div>
+              <div className="text-lg text-background/80 font-medium mb-2">{heroBackgrounds[currentBg].title}</div>
+              {/* <div className="text-sm text-background/60">{heroBackgrounds[currentBg].subtitle}</div> */}
             </div>
 
             <div className="flex justify-center space-x-2 mb-12">
@@ -267,30 +281,34 @@ export default function HomePage() {
           {/* Main Action Cards */}
           <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto mb-20">
             {/* Transfer Management Card */}
-            <Card className="group hover:shadow-2xl transition-all duration-500 border-2 hover:border-primary/40 bg-black/40 backdrop-blur-md border-white/10 hover:scale-105">
-              <CardContent className="p-8">
+            <Card className="group hover:shadow-2xl transition-all duration-500 border-2 hover:border-chart-3/40 bg-black/40 backdrop-blur-md border-white/10 hover:scale-105">
+              <CardContent className="p-8 flex flex-col h-full justify-between">
                 <div className="flex items-center space-x-3 mb-4">
                   <div className="relative">
-                      <div className="h-16 w-16 rounded-2xl bg-gradient-to-br from-yellow-400/30 to-red-500/30 backdrop-blur-sm flex items-center justify-center group-hover:scale-110 transition-transform duration-500 border border-yellow-400/20">
-                        <ArrowLeftRight className="h-8 w-8 text-yellow-300" />
+                      <div className="h-16 w-16 rounded-2xl bg-gradient-to-br from-secondary/30 to-accent/30 backdrop-blur-sm flex items-center justify-center group-hover:scale-110 transition-transform duration-500">
+                        <ArrowLeftRight className="h-8 w-8 text-background" />
                       </div>
                       <div className="absolute -top-1 -right-1 h-6 w-6 bg-yellow-400 rounded-full flex items-center justify-center">
-                        <span className="text-xs font-bold text-red-900">1</span>
+                        <span className="text-xs font-bold text-background">1</span>
                       </div>
                     </div>
                   <div>
-                    <h3 className="text-xl font-bold text-white">Transfer Management</h3>
-                    <p className="text-white/70 text-sm">For Clubs & Officials</p>
+                    <h3 className="text-xl font-bold text-background">Transfer Management</h3>
+                    <p className="text-background/70 text-sm">For Clubs & Officials</p>
                   </div>
                 </div>
-                <p className="text-white/80 mb-6 text-sm leading-relaxed">
+                <p className="text-background mb-6 text-sm leading-relaxed">
                   Manage player transfers, review documentation, and streamline the approval process for Ghana's women's
                   football ecosystem.
                 </p>
-                <Button asChild size="sm" className="w-full group text-sm py-4 bg-primary hover:bg-primary/90">
-                  <Link href="/login">
+                <Button 
+                  asChild 
+                  size="lg"
+                  className="w-full group/btn mt-auto bg-primary/90 hover:bg-primary text-background font-medium tracking-wide transition-all duration-300"
+                >
+                  <Link href="/login" className="flex items-center justify-center py-6">
                     Transfer System
-                    <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-2 transition-transform duration-300" />
+                    <ArrowRight className="ml-2 h-5 w-5 transition-transform duration-300 group-hover/btn:translate-x-1" />
                   </Link>
                 </Button>
               </CardContent>
@@ -298,34 +316,33 @@ export default function HomePage() {
 
             {/* Player Support Card */}
             <Card className="group hover:shadow-2xl transition-all duration-500 border-2 hover:border-accent/40 bg-black/40 backdrop-blur-md border-white/10 hover:scale-105">
-              <CardContent className="p-8">
+              <CardContent className="p-8 flex flex-col h-full justify-between">
                 <div className="flex items-center space-x-3 mb-4">
                   <div className="relative">
-                      <div className="h-16 w-16 rounded-2xl bg-gradient-to-br from-yellow-400/30 to-emerald-500/30 backdrop-blur-sm flex items-center justify-center group-hover:scale-110 transition-transform duration-500 border border-yellow-400/20">
-                        <HandHelping   className="h-8 w-8 text-yellow-300" />
+                      <div className="h-16 w-16 rounded-2xl bg-gradient-to-br from-secondary/70 to-accent/30 backdrop-blur-sm flex items-center justify-center group-hover:scale-110 transition-transform duration-500">
+                        <HandHelping className="h-8 w-8 text-background" />
                       </div>
                       <div className="absolute -top-1 -right-1 h-6 w-6 bg-yellow-400 rounded-full flex items-center justify-center">
                         <span className="text-xs font-bold text-green-900">2</span>
                       </div>
                     </div>
                   <div>
-                    <h3 className="text-xl font-bold text-white">Player Support</h3>
-                    <p className="text-white/70 text-sm">Menstrual Health & Wellbeing</p>
+                    <h3 className="text-xl font-bold text-background">Player Support</h3>
+                    <p className="text-background/70 text-sm">Menstrual Health & Wellbeing</p>
                   </div>
                 </div>
-                <p className="text-white/80 mb-6 text-sm leading-relaxed">
+                <p className="text-background mb-6 text-sm leading-relaxed">
                   Confidential support system for menstrual health resources, medical assistance, and comprehensive
                   wellbeing support for female players.
                 </p>
                 <Button
                   asChild
-                  variant="secondary"
-                  size="sm"
-                  className="w-full group text-sm py-4 bg-accent hover:bg-accent/90 text-accent-foreground"
+                  size="lg"
+                  className="w-full group/btn mt-auto bg-accent/90 hover:bg-accent text-background font-medium tracking-wide transition-all duration-300"
                 >
-                  <Link href="/player-login">
+                  <Link href="/player-login" className="flex items-center justify-center py-6">
                     Player Support
-                    <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-2 transition-transform duration-300" />
+                    <ArrowRight className="ml-2 h-5 w-5 transition-transform duration-300 group-hover/btn:translate-x-1" />
                   </Link>
                 </Button>
               </CardContent>
@@ -333,33 +350,33 @@ export default function HomePage() {
 
             {/* Registration Portal Card */}
             <Card className="group hover:shadow-2xl transition-all duration-500 border-2 hover:border-chart-3/40 bg-black/40 backdrop-blur-md border-white/10 hover:scale-105">
-              <CardContent className="p-8">
+              <CardContent className="p-8 flex flex-col h-full justify-between">
                 <div className="flex items-center space-x-3 mb-4">
                   <div className="relative">
-                      <div className="h-16 w-16 rounded-2xl bg-gradient-to-br from-red-400/30 to-yellow-500/30 backdrop-blur-sm flex items-center justify-center group-hover:scale-110 transition-transform duration-500 border border-red-400/20">
-                        <ScanFace className="h-8 w-8 text-red-300" />
+                      <div className="h-16 w-16 rounded-2xl bg-gradient-to-br from-secondary/30 to-accent/30 backdrop-blur-sm flex items-center justify-center group-hover:scale-110 transition-transform duration-500">
+                        <ScanFace className="h-8 w-8 text-background" />
                       </div>
                       <div className="absolute -top-1 -right-1 h-6 w-6 bg-red-400 rounded-full flex items-center justify-center">
                         <span className="text-xs font-bold text-yellow-900">3</span>
                       </div>
                     </div>
                   <div>
-                    <h3 className="text-xl font-bold text-white">Registration Nexus</h3>
-                    <p className="text-white/70 text-sm">Clubs, Agents & Scouts</p>
+                    <h3 className="text-xl font-bold text-background">Registration Nexus</h3>
+                    <p className="text-background/70 text-sm">Clubs, Agents & Scouts</p>
                   </div>
                 </div>
-                <p className="text-white/80 mb-6 text-sm leading-relaxed">
+                <p className="text-background mb-6 text-sm leading-relaxed">
                   Register as a club official, agent, or scout to access the Ghana women's football ecosystem and manage
                   your profile.
                 </p>
                 <Button
                   asChild
-                  size="sm"
-                  className="w-full group text-sm py-4 mt-6 bg-chart-3 hover:bg-chart-3/90 text-white"
+                  size="lg"
+                  className="w-full group/btn mt-auto bg-primary/90 hover:bg-primary text-background font-medium tracking-wide transition-all duration-300"
                 >
-                  <Link href="/register">
+                  <Link href="/register" className="flex items-center justify-center py-6">
                     Register Now
-                    <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-2 transition-transform duration-300" />
+                    <ArrowRight className="ml-2 h-5 w-5 transition-transform duration-300 group-hover/btn:translate-x-1" />
                   </Link>
                 </Button>
               </CardContent>
@@ -373,7 +390,7 @@ export default function HomePage() {
 
           <section className="mb-20">
             <div className="text-center mb-12">
-              <h2 className="text-4xl font-bold text-white mb-4">Our Clubs</h2>
+              <h2 className="text-3xl sm:text-5xl font-bold text-background mb-4">Our Clubs</h2>
             </div>
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 max-w-6xl mx-auto">
               {featuredClubs.map((club) => (
@@ -394,7 +411,7 @@ export default function HomePage() {
               ))}
             </div>
             <div className="text-center mt-8">
-              <Button asChild variant="outline" className="border-white/20 text-white hover:bg-white/10 bg-transparent">
+              <Button asChild variant="outline" className="border-white/20 text-background hover:bg-white/10 bg-transparent">
                 <Link href="/public-clubs">
                   View All Clubs
                   <ArrowRight className="ml-2 h-4 w-4" />
@@ -405,7 +422,7 @@ export default function HomePage() {
 
           <section className="mb-20">
             <div className="text-center mb-12">
-              <h2 className="text-4xl font-bold text-white mb-4">Latest News</h2>
+              <h2 className="text-3xl sm:text-5xl font-bold text-background mb-4">Latest News</h2>
             </div>
             <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
               {latestNews.map((article) => (
@@ -414,15 +431,15 @@ export default function HomePage() {
                     <CardContent className="p-0">
                       <div className="p-6">
                         <div className="flex items-center justify-between mb-3">
-                          <span className="text-xs bg-primary/20 text-primary px-2 py-1 rounded-full">
+                          <span className="text-xs bg-secondary/20 text-background px-2 py-1 rounded-full">
                             {article.category}
                           </span>
-                          <span className="text-xs text-white/60">{article.date}</span>
+                          <span className="text-xs text-background/60">{article.date}</span>
                         </div>
-                        <h3 className="font-bold text-white mb-3 group-hover:text-primary transition-colors">
+                        <h3 className="font-bold text-background mb-3 group-hover:text-secondary transition-colors">
                           {article.title}
                         </h3>
-                        <p className="text-white/80 text-sm leading-relaxed">{article.excerpt}</p>
+                        <p className="text-background text-sm leading-relaxed">{article.excerpt}</p>
                       </div>
                     </CardContent>
                   </Card>
@@ -430,7 +447,7 @@ export default function HomePage() {
               ))}
             </div>
             <div className="text-center mt-8">
-              <Button asChild variant="outline" className="border-white/20 text-white hover:bg-white/10 bg-transparent">
+              <Button asChild variant="outline" className="border-white/20 text-background hover:bg-white/10 bg-transparent">
                 <Link href="/public-news">
                   View All News
                   <ArrowRight className="ml-2 h-4 w-4" />
@@ -443,7 +460,7 @@ export default function HomePage() {
         {/* Footer */}
         <footer className="border-t border-white/10 bg-black/20 backdrop-blur-md py-12">
           <div className="container mx-auto px-4 text-center">
-            <p className="text-white/70 text-lg">© 2025 Ghana Women Football Association.</p>
+            <p className="text-background/70 text-lg">© 2025 ShePlays Global</p>
           </div>
         </footer>
       </div>

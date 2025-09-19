@@ -53,15 +53,14 @@ export function ModernLoginForm() {
       {/* Header */}
       <div className="text-center space-y-4">
         <Image
-          src="/gfa.png"
+          src="/gfa_on_white.png"
           alt="GFA Logo"
-          width={80}
-          height={80}
+          width={200}
+          height={200}
           className="mx-auto"
         />
         <div className="space-y-2">
-          <h1 className="text-3xl font-bold tracking-tight text-balance">GHANA WOMEN'S FOOTBALL
-TRANSFER SYSTEM</h1>
+          <h1 className="text-3xl font-bold tracking-tight text-balance">TRANSFER SYSTEM</h1>
           <p className="text-muted-foreground text-pretty">
             Sign in to your account
           </p>
@@ -143,7 +142,7 @@ TRANSFER SYSTEM</h1>
         <p>
           Need help? Contact{" "}
           <Link href="mailto:support@gfa.gov.gh" className="text-primary hover:text-primary/80 font-medium">
-            GFA Support
+            FA Support
           </Link>
         </p>
       </div>

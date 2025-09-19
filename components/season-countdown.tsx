@@ -42,7 +42,7 @@ export default function SeasonCountdown() {
 
   return (
     <div className="relative overflow-hidden">
-      <div className="bg-gradient-to-r from-red-600 via-orange-500 to-amber-500 p-6 rounded-lg">
+      <div className="bg-gradient-to-r from-[var(--color-primary)] via-[var(--color-accent)] to-[var(--color-secondary)] p-6 rounded-lg">
         <div className="container mx-auto flex flex-col md:flex-row justify-between items-center text-white">
           <div className="mb-4 md:mb-0">
             <h2 className="text-2xl md:text-3xl font-bold tracking-wider">SEASON STARTS</h2>

@@ -18,7 +18,7 @@ export function MainLayout({ children }: MainLayoutProps) {
   }
 
   return (
-    <div className="flex h-screen flex-col bg-background">
+    <div className="flex h-screen flex-col bg-background/60">
       <Header />
       <div className="flex flex-1 overflow-hidden">
         <Sidebar />

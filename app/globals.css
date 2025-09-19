@@ -4,75 +4,84 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  /* Updated to GFA color scheme with Red, Yellow, Green */
-  --background: oklch(1 0 0); /* White */
-  --foreground: oklch(0.3 0 0); /* Dark Gray #424242 */
-  --card: oklch(0.97 0 0); /* Light Gray #F5F5F5 */
-  --card-foreground: oklch(0.3 0 0);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.3 0 0);
-  --primary: oklch(0.45 0.22 29); /* GFA Red #D50000 */
-  --primary-foreground: oklch(1 0 0);
-  --secondary: oklch(0.85 0.15 85); /* GFA Yellow #FFD600 */
-  --secondary-foreground: oklch(0.3 0 0);
-  --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.6 0 0);
-  --accent: oklch(0.65 0.2 25); /* Accent Red #FF5252 */
-  --accent-foreground: oklch(1 0 0);
-  --destructive: oklch(0.65 0.2 25);
-  --destructive-foreground: oklch(1 0 0);
-  --border: oklch(0.9 0 0);
-  --input: oklch(1 0 0);
-  --ring: oklch(0.45 0.22 29 / 0.5);
-  --chart-1: oklch(0.45 0.22 29); /* GFA Red */
-  --chart-2: oklch(0.85 0.15 85); /* GFA Yellow */
-  --chart-3: oklch(0.65 0.15 145); /* GFA Green #4CAF50 */
-  --chart-4: oklch(0.65 0.2 25); /* Accent Red */
-  --chart-5: oklch(0.8 0.12 75); /* Accent Yellow #FFC107 */
+  /* Updated to new theme: Purple (#531a51), Magenta (#e9008b), Light Pink (#fce4eb) */
+  --background: #fce4eb; /* Light pink background */
+  --foreground: #531a51; /* Deep purple text */
+  --card: #ffffff; /* White cards for contrast */
+  --card-foreground: #531a51;
+  --popover: #ffffff;
+  --popover-foreground: #531a51;
+  --primary: #531a51; /* Deep purple as primary */
+  --primary-foreground: #ffffff;
+  --secondary: #e9008b; /* Magenta as secondary */
+  --secondary-foreground: #ffffff;
+  --muted: #fce4eb;
+  --muted-foreground: #531a51;
+  --accent: #e9008b;
+  --accent-foreground: #ffffff;
+  --destructive: #e9008b;
+  --destructive-foreground: #ffffff;
+  --border: #f0c8d8; /* Slightly darker pink border */
+  --input: #ffffff;
+  --ring: #531a51cc; /* semi-transparent purple */
+
+  /* Chart palette derived from brand colors */
+  --chart-1: #531a51;
+  --chart-2: #e9008b;
+  --chart-3: #fce4eb;
+  --chart-4: #9c3a96; /* lighter shade of purple */
+  --chart-5: #ff66b3; /* lighter shade of magenta */
+
   --radius: 0.5rem;
-  --sidebar: oklch(0.97 0 0);
-  --sidebar-foreground: oklch(0.3 0 0);
-  --sidebar-primary: oklch(0.45 0.22 29);
-  --sidebar-primary-foreground: oklch(1 0 0);
-  --sidebar-accent: oklch(0.85 0.15 85);
-  --sidebar-accent-foreground: oklch(0.3 0 0);
-  --sidebar-border: oklch(0.9 0 0);
-  --sidebar-ring: oklch(0.45 0.22 29 / 0.3);
+
+  /* Sidebar */
+  --sidebar: #ffffff;
+  --sidebar-foreground: #531a51;
+  --sidebar-primary: #531a51;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #e9008b;
+  --sidebar-accent-foreground: #ffffff;
+  --sidebar-border: #f0c8d8;
+  --sidebar-ring: #531a5133;
 }
 
 .dark {
-  --background: oklch(0.15 0 0);
-  --foreground: oklch(0.95 0 0);
-  --card: oklch(0.2 0 0);
-  --card-foreground: oklch(0.95 0 0);
-  --popover: oklch(0.15 0 0);
-  --popover-foreground: oklch(0.95 0 0);
-  --primary: oklch(0.65 0.2 25); /* Lighter red for dark mode */
-  --primary-foreground: oklch(0.15 0 0);
-  --secondary: oklch(0.75 0.12 85); /* Darker yellow for dark mode */
-  --secondary-foreground: oklch(0.15 0 0);
-  --muted: oklch(0.25 0 0);
-  --muted-foreground: oklch(0.7 0 0);
-  --accent: oklch(0.7 0.18 25);
-  --accent-foreground: oklch(0.15 0 0);
-  --destructive: oklch(0.7 0.18 25);
-  --destructive-foreground: oklch(0.15 0 0);
-  --border: oklch(0.25 0 0);
-  --input: oklch(0.25 0 0);
-  --ring: oklch(0.65 0.2 25 / 0.5);
-  --chart-1: oklch(0.65 0.2 25);
-  --chart-2: oklch(0.75 0.12 85);
-  --chart-3: oklch(0.7 0.12 145);
-  --chart-4: oklch(0.7 0.18 25);
-  --chart-5: oklch(0.75 0.1 75);
-  --sidebar: oklch(0.2 0 0);
-  --sidebar-foreground: oklch(0.95 0 0);
-  --sidebar-primary: oklch(0.65 0.2 25);
-  --sidebar-primary-foreground: oklch(0.15 0 0);
-  --sidebar-accent: oklch(0.25 0 0);
-  --sidebar-accent-foreground: oklch(0.95 0 0);
-  --sidebar-border: oklch(0.25 0 0);
-  --sidebar-ring: oklch(0.65 0.2 25 / 0.3);
+  --background: #1a0d1a; /* Very dark purple-black */
+  --foreground: #fce4eb; /* Light pink text */
+  --card: #2a122a;
+  --card-foreground: #fce4eb;
+  --popover: #2a122a;
+  --popover-foreground: #fce4eb;
+  --primary: #e9008b; /* Magenta pops better in dark mode */
+  --primary-foreground: #1a0d1a;
+  --secondary: #531a51; /* Purple as secondary in dark mode */
+  --secondary-foreground: #fce4eb;
+  --muted: #3a1c3a;
+  --muted-foreground: #fce4eb;
+  --accent: #e9008b;
+  --accent-foreground: #1a0d1a;
+  --destructive: #e9008b;
+  --destructive-foreground: #1a0d1a;
+  --border: #3a1c3a;
+  --input: #3a1c3a;
+  --ring: #e9008bcc;
+
+  /* Chart palette (shifted for dark background) */
+  --chart-1: #e9008b;
+  --chart-2: #531a51;
+  --chart-3: #fce4eb;
+  --chart-4: #ff66b3;
+  --chart-5: #9c3a96;
+
+  /* Sidebar */
+  --sidebar: #2a122a;
+  --sidebar-foreground: #fce4eb;
+  --sidebar-primary: #e9008b;
+  --sidebar-primary-foreground: #1a0d1a;
+  --sidebar-accent: #531a51;
+  --sidebar-accent-foreground: #fce4eb;
+  --sidebar-border: #3a1c3a;
+  --sidebar-ring: #e9008b33;
 }
 
 @theme inline {

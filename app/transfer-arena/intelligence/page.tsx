@@ -266,19 +266,19 @@ export default function IntelligencePage() {
 
       <Tabs defaultValue="ai-insights" className="space-y-6">
         <TabsList className="grid w-full grid-cols-4 bg-muted">
-          <TabsTrigger value="ai-insights" className="gap-2">
+          <TabsTrigger value="ai-insights" className="gap-2 data-[state=active]:bg-emerald-600 data-[state=active]:text-white">
             <Sparkles className="w-4 h-4" />
             AI Insights
           </TabsTrigger>
-          <TabsTrigger value="scouting" className="gap-2">
+          <TabsTrigger value="scouting" className="gap-2 data-[state=active]:bg-emerald-600 data-[state=active]:text-white">
             <Radar className="w-4 h-4" />
             Scouting Reports
           </TabsTrigger>
-          <TabsTrigger value="market" className="gap-2">
+          <TabsTrigger value="market" className="gap-2 data-[state=active]:bg-emerald-600 data-[state=active]:text-white">
             <LineChart className="w-4 h-4" />
             Market Analysis
           </TabsTrigger>
-          <TabsTrigger value="trends" className="gap-2">
+          <TabsTrigger value="trends" className="gap-2 data-[state=active]:bg-emerald-600 data-[state=active]:text-white">
             <BarChart3 className="w-4 h-4" />
             Predictive Trends
           </TabsTrigger>

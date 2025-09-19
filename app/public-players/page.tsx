@@ -83,7 +83,7 @@ export default function PublicPlayersPage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-primary/10 via-background to-accent/10">
       {/* Header */}
-      <div className="bg-gradient-to-r from-primary to-accent text-white py-16">
+      <div className="bg-gradient-to-r from-primary to-accent text-white py-10">
         <div className="container mx-auto px-4">
           <div className="flex items-center mb-6">
             <Button variant="ghost" asChild className="text-white hover:bg-white/10 mr-4">
@@ -93,7 +93,7 @@ export default function PublicPlayersPage() {
               </Link>
             </Button>
           </div>
-          <h1 className="text-5xl font-bold mb-4">Players</h1>
+          <h1 className="text-4xl sm:text-6xl font-bold mb-4">Players</h1>
         </div>
       </div>
 

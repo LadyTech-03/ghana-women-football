@@ -113,7 +113,7 @@ export function Sidebar() {
   return (
     <div
       className={cn(
-        "flex fixed w-64 flex-col border-r bg-sidebar transition-all duration-300 left-0 h-[calc(100vh-4rem)]",
+        "flex fixed w-64 flex-col border-r bg-background transition-all duration-300 left-0 h-[calc(100vh-4rem)]",
       )}
     >
       <nav className="flex flex-col space-y-2 p-2 mt-4">

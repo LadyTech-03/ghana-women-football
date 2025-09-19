@@ -311,19 +311,19 @@ export default function FriendliesPage() {
 
       <Tabs defaultValue="matches" className="space-y-6">
         <TabsList className="grid w-full grid-cols-4 bg-muted">
-          <TabsTrigger value="matches" className="gap-2">
+          <TabsTrigger value="matches" className="gap-2 data-[state=active]:bg-emerald-600 data-[state=active]:text-white">
             <Trophy className="w-4 h-4" />
             Matches
           </TabsTrigger>
-          <TabsTrigger value="calendar" className="gap-2">
+          <TabsTrigger value="calendar" className="gap-2 data-[state=active]:bg-emerald-600 data-[state=active]:text-white">
             <Calendar className="w-4 h-4" />
             Calendar View
           </TabsTrigger>
-          <TabsTrigger value="analytics" className="gap-2">
+          <TabsTrigger value="analytics" className="gap-2 data-[state=active]:bg-emerald-600 data-[state=active]:text-white">
             <BarChart3 className="w-4 h-4" />
             Analytics
           </TabsTrigger>
-          <TabsTrigger value="events" className="gap-2">
+          <TabsTrigger value="events" className="gap-2 data-[state=active]:bg-emerald-600 data-[state=active]:text-white">
             <Bell className="w-4 h-4" />
             Events
           </TabsTrigger>

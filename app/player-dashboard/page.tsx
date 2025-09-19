@@ -8,7 +8,7 @@ export default function PlayerDashboard() {
     <div className="space-y-6">
       <div>
         {/* <h1 className="text-3xl font-bold text-balance">Welcome Back, Player</h1> */}
-        <p className="text-muted-foreground">Your confidential support dashboard</p>
+        <p className="text-3xl text-muted-foreground">Your confidential support dashboard</p>
       </div>
 
       {/* Player Wellbeing Widget */}
@@ -48,7 +48,7 @@ export default function PlayerDashboard() {
 
       {/* Quick Stats */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <Card>
+        <Card className="">
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
             <CardTitle className="text-sm font-medium">Support Requests</CardTitle>
             <MessageSquare className="h-4 w-4 text-muted-foreground" />

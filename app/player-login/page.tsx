@@ -49,11 +49,11 @@ export default function PlayerLoginPage() {
               Back to Home
             </Link>
             <div className="flex items-center justify-center space-x-3 mb-6">
-              <Image src={"/gfa.png"} width={42} height={42} alt="logo" />
+              <Image src={"/gfa_on_white.png"} width={200} height={200} alt="logo" />
               <div className="text-left">
-                <h1 className="text-xl font-bold bg-gradient-to-r from-red-600 to-yellow-600 bg-clip-text text-transparent">
+                {/* <h1 className="text-xl font-bold bg-gradient-to-r from-red-600 to-yellow-600 bg-clip-text text-transparent">
                   GHANA WOMEN'S FOOTBALL
-                </h1>
+                </h1> */}
                 {/* <p className="text-sm text-muted-foreground">Confidential & Secure Platform</p> */}
               </div>
             </div>
@@ -144,7 +144,7 @@ export default function PlayerLoginPage() {
             <p className="text-xs text-muted-foreground">
               Need help? Contact your club's welfare officer or{" "}
               <Link href="/support-contact" className="text-red-600 hover:text-red-700 hover:underline">
-                GFA Support
+                FA Support
               </Link>
             </p>
           </div>
@@ -160,11 +160,11 @@ export default function PlayerLoginPage() {
 
           <div className="grid gap-6">
             <div className="flex items-start space-x-4 p-6 bg-white/80 dark:bg-card/80 backdrop-blur-sm rounded-xl border border-red-200/50 dark:border-red-800/50 shadow-lg">
-              <div className="h-12 w-12 rounded-full bg-gradient-to-r from-red-500/20 to-red-600/20 flex items-center justify-center flex-shrink-0">
-                <Shield className="h-6 w-6 text-red-600" />
+              <div className="h-12 w-12 rounded-full bg-primary flex items-center justify-center flex-shrink-0">
+                <Shield className="h-6 w-6 text-background" />
               </div>
               <div className="text-left">
-                <h3 className="font-semibold text-red-900 dark:text-red-100">Confidential Support</h3>
+                <h3 className="font-semibold text-primary dark:text-red-100">Confidential Support</h3>
                 <p className="text-sm text-muted-foreground">
                   Request supplies, medical support, and schedule adjustments privately and securely.
                 </p>
@@ -172,24 +172,24 @@ export default function PlayerLoginPage() {
             </div>
 
             <div className="flex items-start space-x-4 p-6 bg-white/80 dark:bg-card/80 backdrop-blur-sm rounded-xl border border-yellow-200/50 dark:border-yellow-800/50 shadow-lg">
-              <div className="h-12 w-12 rounded-full bg-gradient-to-r from-yellow-500/20 to-yellow-600/20 flex items-center justify-center flex-shrink-0">
-                <BookOpen className="h-6 w-6 text-yellow-600" />
+              <div className="h-12 w-12 rounded-full bg-secondary/60 flex items-center justify-center flex-shrink-0">
+                <BookOpen className="h-6 w-6 text-background" />
               </div>
               <div className="text-left">
-                <h3 className="font-semibold text-yellow-900 dark:text-yellow-100">Health Resources</h3>
-                <p className="text-sm text-muted-foreground">
+                <h3 className="font-semibold text-primary dark:text-yellow-100">Health Resources</h3>
+                <p className="text-sm text-primary">
                   Access articles, videos, and local resources on menstrual health and nutrition.
                 </p>
               </div>
             </div>
 
             <div className="flex items-start space-x-4 p-6 bg-white/80 dark:bg-card/80 backdrop-blur-sm rounded-xl border border-green-200/50 dark:border-green-800/50 shadow-lg">
-              <div className="h-12 w-12 rounded-full bg-gradient-to-r from-green-500/20 to-green-600/20 flex items-center justify-center flex-shrink-0">
-                <Users className="h-6 w-6 text-green-600" />
+              <div className="h-12 w-12 rounded-full bg-accent flex items-center justify-center flex-shrink-0">
+                <Users className="h-6 w-6 text-background" />
               </div>
               <div className="text-left">
-                <h3 className="font-semibold text-green-900 dark:text-green-100">Community Support</h3>
-                <p className="text-sm text-muted-foreground">
+                <h3 className="font-semibold text-primary dark:text-green-100">Community Support</h3>
+                <p className="text-sm text-primary">
                   Connect with welfare officers and access anonymous feedback channels.
                 </p>
               </div>
