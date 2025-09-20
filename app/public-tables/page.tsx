@@ -322,10 +322,7 @@ export default function PublicTablesPage() {
           </div>
           <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6">
             <div>
-              <h1 className="text-5xl font-bold mb-4">Tables & Statistics</h1>
-              <p className="text-xl text-white/90">
-                Current standings and top performers in Ghana Women's Premier League
-              </p>
+              <h1 className="text-4xl font-bold mb-4">Tables & Statistics</h1>
             </div>
             <div className="flex items-center gap-3">
               <Calendar className="h-5 w-5 text-white/80" />
@@ -345,7 +342,7 @@ export default function PublicTablesPage() {
       </div>
 
       <div className="container mx-auto px-4 py-12">
-        <div className="grid lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 lg:gap-8">
           {/* League Table */}
           <div className="lg:col-span-2">
             <Card>

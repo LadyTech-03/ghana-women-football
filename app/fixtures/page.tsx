@@ -367,87 +367,90 @@ export default function FixturesPage() {
     })
   }
 
-  const FixtureCard = ({ fixture, zoneColor }: { fixture: any; zoneColor: string }) => (
-    <div className="group relative overflow-hidden rounded-xl border bg-gradient-to-r from-background via-background to-muted/20 p-6 transition-all duration-300 hover:shadow-lg hover:shadow-primary/10 hover:border-primary/20">
-      <div className="flex items-center justify-between">
-        {/* Teams Section */}
-        <div className="flex items-center gap-8 flex-1">
-          {/* Home Team */}
-          <div className="flex items-center gap-3 flex-1 justify-end">
-            <div className="text-right">
-              <div className="font-semibold text-lg group-hover:text-primary transition-colors">{fixture.homeTeam}</div>
-              {/* <div className="text-sm text-muted-foreground">Home</div> */}
-            </div>
-            <div className="relative">
-              <div className="h-12 w-12 rounded-full flex items-center justify-center border-2 border-background shadow-lg">
-                <Image
-                  src={clubLogos[fixture.homeTeam] || "/placeholder.svg"}
-                  alt={fixture.homeTeam}
-                  width={100}
-                  height={100}
-                  className="rounded-full"
-                />
-              </div>
-            </div>
+const FixtureCard = ({ fixture, zoneColor }: { fixture: any; zoneColor: string }) => (
+  <div className="group relative overflow-hidden rounded-xl border bg-gradient-to-r from-background via-background to-muted/20 p-4 sm:p-6 transition-all duration-300 hover:shadow-lg hover:shadow-primary/10 hover:border-primary/20">
+    <div className="flex flex-col sm:flex-row gap-4 sm:gap-0">
+      {/* Teams Section */}
+      <div className="flex items-center gap-4 sm:gap-8 flex-1">
+        {/* Home Team */}
+        <div className="flex items-center gap-2 sm:gap-3 flex-1 justify-end">
+          <div className="text-right">
+            <div className="font-semibold text-sm sm:text-lg group-hover:text-primary transition-colors">{fixture.homeTeam}</div>
           </div>
-
-          {/* Score/VS Section */}
-          <div className="flex flex-col items-center gap-2 min-w-[120px]">
-            {fixture.status === "completed" ? (
-              <div className="flex items-center gap-4">
-                <div className={`text-2xl font-bold ${zoneColor}`}>{fixture.homeScore}</div>
-                <div className="text-muted-foreground">-</div>
-                <div className={`text-2xl font-bold ${zoneColor}`}>{fixture.awayScore}</div>
-              </div>
-            ) : (
-              <div
-                className={`px-4 py-2 rounded-full text-sm font-semibold ${zoneColor === "text-primary" ? "bg-primary/10 text-primary" : "bg-accent/10 text-accent"}`}
-              >
-                VS
-              </div>
-            )}
-            <div className="flex items-center gap-2 text-xs text-muted-foreground">
-              <Clock className="h-3 w-3" />
-              {fixture.time}
-            </div>
-          </div>
-
-          {/* Away Team */}
-          <div className="flex items-center gap-3 flex-1">
-            <div className="relative">
-              <div className="h-12 w-12 rounded-full flex items-center justify-center border-2 border-background shadow-lg">
-                <Image
-                  src={clubLogos[fixture.awayTeam] || "/placeholder.svg"}
-                  alt={fixture.awayTeam}
-                  width={100}
-                  height={100}
-                  className="rounded-full"
-                />
-              </div>
-            </div>
-            <div className="text-left">
-              <div className="font-semibold text-lg group-hover:text-primary transition-colors">{fixture.awayTeam}</div>
-              {/* <div className="text-sm text-muted-foreground">Away</div> */}
+          <div className="relative">
+            <div className="h-8 w-8 sm:h-12 sm:w-12 rounded-full flex items-center justify-center border-2 border-background shadow-lg">
+              <Image
+                src={clubLogos[fixture.homeTeam] || "/placeholder.svg"}
+                alt={fixture.homeTeam}
+                width={100}
+                height={100}
+                className="rounded-full"
+              />
             </div>
           </div>
         </div>
 
-        {/* Match Info */}
-        <div className="text-right space-y-2 ml-6">
-          <div className="flex items-center gap-2 text-sm text-muted-foreground justify-end">
-            <MapPin className="h-4 w-4" />
-            {fixture.venue}
+        {/* Score/VS Section */}
+        <div className="flex flex-col items-center gap-1 sm:gap-2 min-w-[80px] sm:min-w-[120px]">
+          {fixture.status === "completed" ? (
+            <div className="flex items-center gap-2 sm:gap-4">
+              <div className={`text-lg sm:text-2xl font-bold ${zoneColor}`}>{fixture.homeScore}</div>
+              <div className="text-muted-foreground">-</div>
+              <div className={`text-lg sm:text-2xl font-bold ${zoneColor}`}>{fixture.awayScore}</div>
+            </div>
+          ) : (
+            <div
+              className={`px-3 py-1 sm:px-4 sm:py-2 rounded-full text-xs sm:text-sm font-semibold ${
+                zoneColor === "text-primary" ? "bg-primary/10 text-primary" : "bg-accent/10 text-accent"
+              }`}
+            >
+              VS
+            </div>
+          )}
+          <div className="flex items-center gap-1 sm:gap-2 text-[10px] sm:text-xs text-muted-foreground">
+            <Clock className="h-3 w-3" />
+            {fixture.time}
           </div>
-          <div className="flex items-center gap-2 justify-end">
-            <Badge variant={fixture.status === "completed" ? "default" : "secondary"} className="text-xs">
-              {fixture.status === "completed" ? "Full Time" : "Upcoming"}
-            </Badge>
+        </div>
+
+        {/* Away Team */}
+        <div className="flex items-center gap-2 sm:gap-3 flex-1">
+          <div className="relative">
+            <div className="h-8 w-8 sm:h-12 sm:w-12 rounded-full flex items-center justify-center border-2 border-background shadow-lg">
+              <Image
+                src={clubLogos[fixture.awayTeam] || "/placeholder.svg"}
+                alt={fixture.awayTeam}
+                width={100}
+                height={100}
+                className="rounded-full"
+              />
+            </div>
           </div>
-          <div className="text-xs text-muted-foreground">{formatDate(fixture.date)}</div>
+          <div className="text-left">
+            <div className="font-semibold text-sm sm:text-lg group-hover:text-primary transition-colors">{fixture.awayTeam}</div>
+          </div>
         </div>
       </div>
+
+      {/* Match Info */}
+      <div className="flex items-center gap-4 sm:flex-col justify-between sm:text-right space-y-0 sm:space-y-2 sm:ml-6 mt-4 sm:mt-0">
+        <div className="flex items-center gap-1 sm:gap-2 text-xs sm:text-sm text-muted-foreground sm:justify-end">
+          <MapPin className="h-3 w-3 sm:h-4 sm:w-4" />
+          <span className="truncate">{fixture.venue}</span>
+        </div>
+        {/* <div className="flex items-center gap-2 sm:justify-end">
+          <Badge 
+            variant={fixture.status === "completed" ? "default" : "secondary"} 
+            className="text-[10px] sm:text-xs px-2 py-0 sm:px-3 sm:py-1"
+          >
+            {fixture.status === "completed" ? "Full Time" : "Upcoming"}
+          </Badge>
+        </div> */}
+        <div className="hidden sm:block text-xs text-muted-foreground">{formatDate(fixture.date)}</div>
+      </div>
     </div>
-  )
+  </div>
+)
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-primary/5 via-background to-accent/5">
@@ -472,22 +475,11 @@ export default function FixturesPage() {
             </Button>
           </div>
 
-          <div className="flex items-start gap-6 mb-6">
+          <div className="flex flex-col sm:flex-row items-start gap-6 mb-6">
             <div className="flex-1">
-              <h1 className="text-6xl font-bold mb-3 bg-gradient-to-r from-white to-white/80 bg-clip-text text-transparent">
+              <h1 className="text-4xl sm:text-5xl font-bold mb-3 bg-gradient-to-r from-white to-white/80 bg-clip-text text-transparent">
                 Fixtures & Results
               </h1>
-              <p className="text-xl text-white/90 mb-2">{selectedSeason} Season - Ghana Women's Premier League</p>
-              <div className="flex items-center gap-4 text-white/80">
-                <div className="flex items-center gap-2">
-                  <Trophy className="h-5 w-5" />
-                  <span>Northern & Southern Zones</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <Users className="h-5 w-5" />
-                  <span>20 Teams</span>
-                </div>
-              </div>
             </div>
             <div className="flex items-center gap-3">
               <Calendar className="h-5 w-5 text-white/80" />

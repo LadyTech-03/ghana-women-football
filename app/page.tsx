@@ -320,6 +320,11 @@ export default function HomePage() {
                   Player Support
                 </Link>
               </Button>
+              <Button variant="outline" asChild className="border-white/20 text-background hover:bg-white/10 bg-transparent">
+                <Link className="text-lg" href="/register">
+                  Registration Nexus
+                </Link>
+              </Button>
             </div>
           </div>
         </header>
