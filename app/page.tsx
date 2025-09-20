@@ -9,6 +9,14 @@ import { useEffect, useState } from "react"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import SeasonCountdown from "@/components/season-countdown"
 import { TypewriterEffectSmooth } from "@/components/ui/typewriter-effect";
+import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet"
+import { Menu } from "lucide-react"
+import { GiDarkSquad } from "react-icons/gi";
+import { VscJersey } from "react-icons/vsc";
+import { FaRegFlag } from "react-icons/fa6";
+import { AiOutlineTable } from "react-icons/ai";
+import { PiNewspaperClippingLight } from "react-icons/pi";
+
 
 const heroBackgrounds = [
   {
@@ -164,11 +172,11 @@ export default function HomePage() {
   const words = [
     {
       text: "ShePlays",
-      className: "text-6xl md:text-8xl font-bold text-background text-balance mb-4",
+      className: "text-4xl sm:text-6xl md:text-8xl font-bold text-background text-balance mb-4",
     },
     {
       text: "Global",
-      className: "text-6xl md:text-8xl font-bold text-secondary text-balance mb-4",
+      className: "text-4xl sm:text-6xl md:text-8xl font-bold text-secondary text-balance mb-4",
     },
   ];
 
@@ -207,11 +215,9 @@ export default function HomePage() {
           <div className="container mx-auto px-4 py-4 flex items-center justify-between">
             <div className="flex items-center space-x-3">
               <Image src="/gfa.png" alt="GFA Logo" width={150} height={150} />
-              {/* <div>
-                <h1 className="font-bold text-lg text-background">Ghana Football Association</h1>
-                <p className="text-xs text-background/70">Women's Football Management</p>
-              </div> */}
             </div>
+            
+            {/* Desktop Navigation */}
             <nav className="text-sm sm:text-md hidden md:flex items-center space-x-6">
               <Link href="/public-players" className="text-background hover:text-background transition-colors">
                 Players
@@ -234,7 +240,76 @@ export default function HomePage() {
                 News
               </a>
             </nav>
-            <div className="flex items-center space-x-2">
+
+            {/* Mobile Navigation */}
+            <div className="md:hidden">
+              <Sheet>
+                <SheetTrigger asChild>
+                  <Button variant="ghost" size="icon" className="text-background">
+                    <Menu className="h-6 w-6" />
+                  </Button>
+                </SheetTrigger>
+                <SheetHeader>
+                  <SheetTitle></SheetTitle>
+                </SheetHeader>
+                <SheetContent side="right" className="w-[300px] bg-primary/95 backdrop-blur-lg border-primary/20">
+                  <nav className="flex flex-col gap-4 mt-8">
+                    <Link 
+                      href="/public-players" 
+                      className="flex items-center text-background hover:text-secondary transition-colors px-4 py-2 text-lg"
+                    >
+                      <VscJersey className="inline-block mr-2 h-4 w-4" />
+                      Players
+                    </Link>
+                    <Link 
+                      href="/public-clubs" 
+                      className="flex items-center text-background hover:text-secondary transition-colors px-4 py-2 text-lg"
+                    >
+                      <GiDarkSquad className="inline-block mr-2 h-4 w-4" />
+                      Clubs
+                    </Link>
+                    <Link 
+                      href="/public-tables" 
+                      className="flex items-center text-background hover:text-secondary transition-colors px-4 py-2 text-lg"
+                    >
+                      <AiOutlineTable  className="inline-block mr-2 h-4 w-4" />
+                      Tables
+                    </Link>
+                    <Link 
+                      href="/fixtures" 
+                      className="flex items-center text-background hover:text-secondary transition-colors px-4 py-2 text-lg"
+                    >
+                      <FaRegFlag className="inline-block mr-2 h-4 w-4" />
+                      Fixtures
+                    </Link>
+                    <a
+                      href="https://ghanafa.org/category/womens-football/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center text-background hover:text-secondary transition-colors px-4 py-2 text-lg"
+                    >
+                      <PiNewspaperClippingLight className="inline-block mr-2 h-4 w-4" />
+                      News
+                    </a>
+                    <div className="flex flex-col gap-2 mt-4 px-4">
+                      <Button asChild variant="outline" className="w-full justify-start border-white/20 text-background hover:bg-white/10 bg-transparent">
+                        <Link href="/login">
+                          Make Transfer
+                        </Link>
+                      </Button>
+                      <Button asChild variant="outline" className="w-full justify-start border-white/20 text-background hover:bg-white/10 bg-transparent">
+                        <Link href="/player-login">
+                          Player Support
+                        </Link>
+                      </Button>
+                    </div>
+                  </nav>
+                </SheetContent>
+              </Sheet>
+            </div>
+
+            {/* Desktop Buttons */}
+            <div className="hidden md:flex items-center space-x-2">
               <Button variant="ghost" asChild className="text-background hover:bg-white/10">
                 <Link className="text-lg" href="/login">
                   Make Transfer

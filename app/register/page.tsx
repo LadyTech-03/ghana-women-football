@@ -43,9 +43,9 @@ export default function RegisterPage() {
   const router = useRouter()
 
   const registrationFees = {
-    club: { amount: "5,000", currency: "GHS", description: "Club/GFA Official Registration" },
-    agent: { amount: "3,000", currency: "GHS", description: "Agent Registration" },
-    scout: { amount: "2,000", currency: "GHS", description: "Scout Registration" },
+    club: { amount: "2,000", currency: "$", description: "Club/GFA Official Registration" },
+    agent: { amount: "1,000", currency: "$", description: "Agent Registration" },
+    scout: { amount: "1,000", currency: "$", description: "Scout Registration" },
   }
 
   const handleRegisterClick = (type: string) => {
@@ -114,21 +114,21 @@ export default function RegisterPage() {
                         <Building2 className="h-4 w-4 text-background" />
                         <span className="text-sm font-medium text-white">Club/GFA Official</span>
                       </div>
-                      <p className="text-lg font-bold text-secondary/80 mt-1">GHS 5,000</p>
+                      <p className="text-lg font-bold text-secondary/80 mt-1">$ 2,000</p>
                     </div>
                     <div className="bg-white/10 rounded-lg p-3 border border-white/20">
                       <div className="flex items-center space-x-2">
                         <UserCheck className="h-4 w-4 text-background" />
                         <span className="text-sm font-medium text-white">Agent</span>
                       </div>
-                      <p className="text-lg font-bold text-secondary/80 mt-1">GHS 3,000</p>
+                      <p className="text-lg font-bold text-secondary/80 mt-1">$ 1,000</p>
                     </div>
                     <div className="bg-white/10 rounded-lg p-3 border border-white/20">
                       <div className="flex items-center space-x-2">
                         <Search className="h-4 w-4 text-background" />
                         <span className="text-sm font-medium text-white">Scout</span>
                       </div>
-                      <p className="text-lg font-bold text-secondary/80 mt-1">GHS 2,000</p>
+                      <p className="text-lg font-bold text-secondary/80 mt-1">$ 1,000</p>
                     </div>
                   </div>
                 </div>
@@ -486,7 +486,7 @@ export default function RegisterPage() {
                       className="w-full bg-primary hover:bg-primary/90 text-white py-6 text-lg font-semibold"
                     >
                       <CreditCard className="mr-2 h-5 w-5" />
-                      Register Club / GFA Official Account - GHS 5,000
+                      Register Club / GFA Official Account - $ 2,000
                     </Button>
                     <p className="text-center text-sm text-white/60 mt-4">
                       By registering, you agree to our Terms of Service and Privacy Policy.
@@ -789,7 +789,7 @@ export default function RegisterPage() {
                       className="w-full bg-primary hover:bg-primary/90 text-white py-6 text-lg font-semibold"
                     >
                       <CreditCard className="mr-2 h-5 w-5" />
-                      Register Agent Account - GHS 3,000
+                      Register Agent Account - $ 1,000
                     </Button>
                     <p className="text-center text-sm text-white/60 mt-4">
                       By registering, you agree to our Terms of Service and Privacy Policy.
@@ -1103,7 +1103,7 @@ export default function RegisterPage() {
                       className="w-full bg-primary hover:bg-primary/90 text-white py-6 text-lg font-semibold"
                     >
                       <CreditCard className="mr-2 h-5 w-5" />
-                      Register Scout Account - GHS 2,000
+                      Register Scout Account - $ 1,000
                     </Button>
                     <p className="text-center text-sm text-white/60 mt-4">
                       By registering, you agree to our Terms of Service and Privacy Policy.
