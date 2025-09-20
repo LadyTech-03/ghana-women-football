@@ -149,7 +149,7 @@ export default function RegisterPage() {
                     className="data-[state=active]:bg-primary data-[state=active]:text-white text-background hover:text-white transition-colors"
                   >
                     <Building2 className="mr-2 h-4 w-4" />
-                    Club / GFA Official
+                    Club
                   </TabsTrigger>
                   <TabsTrigger
                     value="agent"
@@ -486,7 +486,7 @@ export default function RegisterPage() {
                       className="w-full bg-primary hover:bg-primary/90 text-white py-6 text-lg font-semibold"
                     >
                       <CreditCard className="mr-2 h-5 w-5" />
-                      Register Club / GFA Official Account - $ 2,000
+                      Register Club - $ 2,000
                     </Button>
                     <p className="text-center text-sm text-white/60 mt-4">
                       By registering, you agree to our Terms of Service and Privacy Policy.
@@ -789,7 +789,7 @@ export default function RegisterPage() {
                       className="w-full bg-primary hover:bg-primary/90 text-white py-6 text-lg font-semibold"
                     >
                       <CreditCard className="mr-2 h-5 w-5" />
-                      Register Agent Account - $ 1,000
+                      Register Agent - $ 1,000
                     </Button>
                     <p className="text-center text-sm text-white/60 mt-4">
                       By registering, you agree to our Terms of Service and Privacy Policy.
@@ -1103,7 +1103,7 @@ export default function RegisterPage() {
                       className="w-full bg-primary hover:bg-primary/90 text-white py-6 text-lg font-semibold"
                     >
                       <CreditCard className="mr-2 h-5 w-5" />
-                      Register Scout Account - $ 1,000
+                      Register Scout - $ 1,000
                     </Button>
                     <p className="text-center text-sm text-white/60 mt-4">
                       By registering, you agree to our Terms of Service and Privacy Policy.
