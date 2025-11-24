@@ -19,7 +19,7 @@ export default function SeasonCountdown() {
 
   useEffect(() => {
     // Set the date for September 5, 2025
-    const seasonStart = new Date('2025-09-23T00:00:00')
+    const seasonStart = new Date('2025-11-30T00:00:00')
 
     const timer = setInterval(() => {
       const now = new Date()
@@ -46,7 +46,7 @@ export default function SeasonCountdown() {
         <div className="container mx-auto flex flex-col md:flex-row justify-between items-center text-white">
           <div className="mb-4 md:mb-0">
             <h2 className="text-2xl md:text-3xl font-bold tracking-wider">SEASON STARTS</h2>
-            <p className="text-xl md:text-2xl font-semibold mt-1">FRIDAY 5 SEPTEMBER</p>
+            <p className="text-xl md:text-2xl font-semibold mt-1">SATURDAY 30 NOVEMBER</p>
           </div>
           
           <div className="flex gap-4 md:gap-8">
